@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>RNET</v>
+<v>RNET\v01</v>
+<v>RNET\v01\TopDesign</v>
+<v>RNET\v01\v01.cydwr\Pins</v>
+<v>RNET\v01\v01.cydwr\Analog</v>
+<v>RNET\v01\v01.cydwr\Clocks</v>
+<v>RNET\v01\v01.cydwr\Interrupts</v>
+<v>RNET\v01\v01.cydwr\System</v>
+<v>RNET\v01\v01.cydwr\Directives</v>
+<v>RNET\v01\v01.cydwr\Flash Security</v>
+<v>RNET\v01\Header Files</v>
+<v>RNET\v01\Header Files\FreeRTOS</v>
+<v>RNET\v01\Header Files\RNet</v>
+<v>RNET\v01\Header Files\RNet\Radio.h</v>
+<v>RNET\v01\Header Files\RNet\RadioNRF24.h</v>
+<v>RNET\v01\Header Files\RNet\RApp.h</v>
+<v>RNET\v01\Header Files\RNet\RMAC.h</v>
+<v>RNET\v01\Header Files\RNet\RMSG.h</v>
+<v>RNET\v01\Header Files\RNet\RNET1.h</v>
+<v>RNET\v01\Header Files\RNet\RNET1config.h</v>
+<v>RNET\v01\Header Files\RNet\RNetConf.h</v>
+<v>RNET\v01\Header Files\RNet\RNWK.h</v>
+<v>RNET\v01\Header Files\RNet\RPHY.h</v>
+<v>RNET\v01\Header Files\RNet\RStack.h</v>
+<v>RNET\v01\Header Files\RNet\RStdIO.h</v>
+<v>RNET\v01\Header Files\cyapicallbacks.h</v>
+<v>RNET\v01\Header Files\Error.h</v>
+<v>RNET\v01\Source Files</v>
+<v>RNET\v01\Source Files\FreeRTOS</v>
+<v>RNET\v01\Source Files\RNet</v>
+<v>RNET\v01\Source Files\RNet\Radio.c</v>
+<v>RNET\v01\Source Files\RNet\RApp.c</v>
+<v>RNET\v01\Source Files\RNet\RMAC.c</v>
+<v>RNET\v01\Source Files\RNet\RMSG.c</v>
+<v>RNET\v01\Source Files\RNet\RNET1.c</v>
+<v>RNET\v01\Source Files\RNet\RNWK.c</v>
+<v>RNET\v01\Source Files\RNet\RPHY.c</v>
+<v>RNET\v01\Source Files\RNet\RStack.c</v>
+<v>RNET\v01\Source Files\main.c</v>
+<v>RNET\v01\Generated_Source</v>
+<v>RNET\v01\Generated_Source\PSoC4</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>RNET\v01\Source Files\RNet\RMAC.c</v>
+<v>RNET\v01\Source Files\RNet\RMSG.c</v>
+<v>RNET\v01\Source Files\RNet\RNET1.c</v>
+<v>RNET\v01\Source Files\RNet\RNWK.c</v>
+<v>RNET\v01\Source Files\RNet\RPHY.c</v>
+<v>RNET\v01\Source Files\RNet\RStack.c</v>
+<v>RNET\v01\Source Files\main.c</v>
+<v>RNET\v01\Generated_Source</v>
+<v>RNET\v01\Generated_Source\PSoC4</v>
+<v>RNET\v01\Generated_Source\PSoC4\CE</v>
+<v>RNET\v01\Generated_Source\PSoC4\cy_boot</v>
+<v>RNET\v01\Generated_Source\PSoC4\cy_lfclk</v>
+<v>RNET\v01\Generated_Source\PSoC4\RF1</v>
+<v>RNET\v01\Generated_Source\PSoC4\SPI</v>
+<v>RNET\v01\Generated_Source\PSoC4\SPI_miso_m</v>
+<v>RNET\v01\Generated_Source\PSoC4\SPI_mosi_m</v>
+<v>RNET\v01\Generated_Source\PSoC4\SPI_SCBCLK</v>
+<v>RNET\v01\Generated_Source\PSoC4\SPI_sclk_m</v>
+<v>RNET\v01\Generated_Source\PSoC4\SS</v>
+<v>RNET\v01\Generated_Source\PSoC4\cycodeshareexport.ld</v>
+<v>RNET\v01\Generated_Source\PSoC4\cycodeshareimport.ld</v>
+<v>RNET\v01\Generated_Source\PSoC4\cycodeshareimport.scat</v>
+<v>RNET\v01\Generated_Source\PSoC4\cydevice_trm.h</v>
+<v>RNET\v01\Generated_Source\PSoC4\cydevicegnu_trm.inc</v>
+<v>RNET\v01\Generated_Source\PSoC4\cydeviceiar_trm.inc</v>
+<v>RNET\v01\Generated_Source\PSoC4\cydevicerv_trm.inc</v>
+<v>RNET\v01\Generated_Source\PSoC4\cydisabledsheets.h</v>
+<v>RNET\v01\Generated_Source\PSoC4\cyfitter.h</v>
+<v>RNET\v01\Generated_Source\PSoC4\cyfitter_cfg.c</v>
+<v>RNET\v01\Generated_Source\PSoC4\cyfitter_cfg.h</v>
+<v>RNET\v01\Generated_Source\PSoC4\cyfittergnu.inc</v>
+<v>RNET\v01\Generated_Source\PSoC4\cyfitteriar.inc</v>
+<v>RNET\v01\Generated_Source\PSoC4\cyfitterrv.inc</v>
+<v>RNET\v01\Generated_Source\PSoC4\cymetadata.c</v>
+<v>RNET\v01\Generated_Source\PSoC4\project.h</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>RNET</v>
+<v>RNET\v01</v>
+<v>RNET\v01\TopDesign</v>
+<v>RNET\v01\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>RNET</v>
+<v>RNET\v01</v>
+<v>RNET\v01\TopDesign</v>
+<v>RNET\v01\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>RNET</v>
+<v>RNET\v01</v>
+<v>RNET\v01\v01.gpdsc</v>
+<v>RNET\v01\v01.rpt</v>
+<v>RNET\v01\v01_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>RNET</v>
+<v>RNET\v01</v>
+<v>RNET\v01\v01.gpdsc</v>
+<v>RNET\v01\v01.rpt</v>
+<v>RNET\v01\v01_timing.html</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>RNET</v>
+<v>RNET\v01</v>
+<v>RNET\v01\PSoC 4 Architecture TRM</v>
+<v>RNET\v01\PSoC 4200 Family Datasheet</v>
+<v>RNET\v01\System Reference Guides</v>
+<v>RNET\v01\System Reference Guides\cy_boot_v5_60</v>
+<v>RNET\v01\System Reference Guides\cy_lfclk_v1_20</v>
+<v>RNET\v01\cy_pins_v2_20</v>
+<v>RNET\v01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>RNET\v01\SCB_P4_v4_0.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>RNET</v>
+<v>RNET\v01</v>
+<v>RNET\v01\PSoC 4 Architecture TRM</v>
+<v>RNET\v01\PSoC 4200 Family Datasheet</v>
+<v>RNET\v01\System Reference Guides</v>
+<v>RNET\v01\System Reference Guides\cy_boot_v5_60</v>
+<v>RNET\v01\System Reference Guides\cy_lfclk_v1_20</v>
+<v>RNET\v01\cy_pins_v2_20</v>
+<v>RNET\v01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>RNET\v01\SCB_P4_v4_0.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+<dataGuid v="6c335137-fa19-46ce-bc2d-2fbeb6d5f2a2">
+<CyGuid_70084457-cd6a-4593-9ed0-7f6eeb432dc2 type_name="CyDesigner.Common.ProjMgmt.GUI.CyDependenciesCustomData" version="1">
+<dictName v=".\v01.cydsn\v01.cyprj">
+<listName />
+</dictName>
+</CyGuid_70084457-cd6a-4593-9ed0-7f6eeb432dc2>
+</dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs />
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

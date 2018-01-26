@@ -1,0 +1,19 @@
+net \SPI:miso_m_wire\
+	term   ":ioport4:pin1.fb"
+	switch ":ioport4:pin1.fb==>:ioport4:hsiom_in1.hsiom1_in"
+	switch ":ioport4:hsiom_in1.fixed_DPSLP_3==>:m0s8scbcell_0__miso_m__hsiom_permute.ioport4__fixed_out_p1_DPSLP_3"
+	switch ":m0s8scbcell_0__miso_m__hsiom_permute.m0s8scbcell_0__miso_m==>:m0s8scbcell_0.miso_m"
+	term   ":m0s8scbcell_0.miso_m"
+end \SPI:miso_m_wire\
+net \SPI:mosi_m_wire\
+	term   ":m0s8scbcell_0.mosi_m"
+	switch ":m0s8scbcell_0.mosi_m==>:ioport4:hsiom_out0.fixed_DPSLP_3"
+	switch ":ioport4:hsiom_out0.hsiom0_out==>:ioport4:pin0.pin_input"
+	term   ":ioport4:pin0.pin_input"
+end \SPI:mosi_m_wire\
+net \SPI:sclk_m_wire\
+	term   ":m0s8scbcell_0.sclk_m"
+	switch ":m0s8scbcell_0.sclk_m==>:ioport4:hsiom_out2.fixed_DPSLP_3"
+	switch ":ioport4:hsiom_out2.hsiom2_out==>:ioport4:pin2.pin_input"
+	term   ":ioport4:pin2.pin_input"
+end \SPI:sclk_m_wire\
