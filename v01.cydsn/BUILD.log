@@ -1,96 +1,78 @@
---------------- Build Started: 01/27/2018 02:53:01 Project: v01, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 01/27/2018 14:48:41 Project: v01, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I..\RNET -I..\FreeRTOS\include -I..\FreeRTOS\portable\GCC\ARM_CM0 -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Radio.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\RNET\Radio.c -o .\CortexM0\ARM_GCC_541\Debug\Radio.o
 ..\RNET\Radio.c: In function 'CheckRx':
-..\RNET\Radio.c:229:14: warning: implicit declaration of function 'RF1_GetStatusClrIRQ' [-Wimplicit-function-declaration]
+..\RNET\Radio.c:273:14: warning: implicit declaration of function 'RF1_GetStatusClrIRQ' [-Wimplicit-function-declaration]
      status = RF1_GetStatusClrIRQ();
               ^
-..\RNET\Radio.c:230:23: error: 'RF1_STATUS_RX_DR' undeclared (first use in this function)
+..\RNET\Radio.c:274:23: error: 'RF1_STATUS_RX_DR' undeclared (first use in this function)
      hasRx = (status & RF1_STATUS_RX_DR) != 0;
                        ^
-..\RNET\Radio.c:230:23: note: each undeclared identifier is reported only once for each function it appears in
-..\RNET\Radio.c:234:15: warning: implicit declaration of function 'RF1_GetFifoStatus' [-Wimplicit-function-declaration]
+..\RNET\Radio.c:274:23: note: each undeclared identifier is reported only once for each function it appears in
+..\RNET\Radio.c:279:15: warning: implicit declaration of function 'RF1_GetFifoStatus' [-Wimplicit-function-declaration]
          (void)RF1_GetFifoStatus(&status);
                ^
-..\RNET\Radio.c:235:24: error: 'RF1_FIFO_STATUS_RX_EMPTY' undeclared (first use in this function)
+..\RNET\Radio.c:280:24: error: 'RF1_FIFO_STATUS_RX_EMPTY' undeclared (first use in this function)
          if (!(status & RF1_FIFO_STATUS_RX_EMPTY) ||
                         ^
-..\RNET\Radio.c:236:23: error: 'RF1_FIFO_STATUS_RX_FULL' undeclared (first use in this function)
+..\RNET\Radio.c:281:23: error: 'RF1_FIFO_STATUS_RX_FULL' undeclared (first use in this function)
              (status & RF1_FIFO_STATUS_RX_FULL)) { /* Rx not empty? */
                        ^
-..\RNET\Radio.c:245:15: warning: implicit declaration of function 'RF1_ReadNofRxPayload' [-Wimplicit-function-declaration]
+..\RNET\Radio.c:291:15: warning: implicit declaration of function 'RF1_ReadNofRxPayload' [-Wimplicit-function-declaration]
          (void)RF1_ReadNofRxPayload(&payloadSize);
                ^
-..\RNET\Radio.c:247:13: warning: implicit declaration of function 'RF1_Write' [-Wimplicit-function-declaration]
+..\RNET\Radio.c:293:13: warning: implicit declaration of function 'RF1_Write' [-Wimplicit-function-declaration]
              RF1_Write(RF1_FLUSH_RX);                /* flush old data */
              ^
-..\RNET\Radio.c:247:23: error: 'RF1_FLUSH_RX' undeclared (first use in this function)
+..\RNET\Radio.c:293:23: error: 'RF1_FLUSH_RX' undeclared (first use in this function)
              RF1_Write(RF1_FLUSH_RX);                /* flush old data */
-The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
                        ^
-..\RNET\Radio.c:250:13: warning: implicit declaration of function 'RF1_RxPayload' [-Wimplicit-function-declaration]
+..\RNET\Radio.c:296:13: warning: implicit declaration of function 'RF1_RxPayload' [-Wimplicit-function-declaration]
              RF1_RxPayload(packet.rxtx, payloadSize); /* get payload: note that
              ^
 ..\RNET\Radio.c: In function 'RADIO_HandleStateMachine':
-..\RNET\Radio.c:317:13: warning: implicit declaration of function 'RF1_PollInterrupt' [-Wimplicit-function-declaration]
+..\RNET\Radio.c:366:13: warning: implicit declaration of function 'RF1_PollInterrupt' [-Wimplicit-function-declaration]
              RF1_PollInterrupt();
              ^
-..\RNET\Radio.c:322:32: error: 'RF1_FIFO_STATUS_RX_EMPTY' undeclared (first use in this function)
+..\RNET\Radio.c:371:32: error: 'RF1_FIFO_STATUS_RX_EMPTY' undeclared (first use in this function)
                  if (!(status & RF1_FIFO_STATUS_RX_EMPTY) ||
                                 ^
-..\RNET\Radio.c:323:31: error: 'RF1_FIFO_STATUS_RX_FULL' undeclared (first use in this function)
+..\RNET\Radio.c:372:31: error: 'RF1_FIFO_STATUS_RX_FULL' undeclared (first use in this function)
                      (status & RF1_FIFO_STATUS_RX_FULL)) { /* Rx not empty? */
                                ^
-..\RNET\Radio.c:343:31: error: 'RF1_FLUSH_RX' undeclared (first use in this function)
-                     RF1_Write(RF1_FLUSH_RX);                /* flush old data */
-                               ^
-..\RNET\Radio.c:399:30: error: 'RF1_STATUS_MAX_RT' undeclared (first use in this function)
-                 if (status & RF1_STATUS_MAX_RT) { /* retry timeout interrupt */
+..\RNET\Radio.c:459:30: error: 'RF1_STATUS_MAX_RT' undeclared (first use in this function)
+                 if (status & RF1_STATUS_MAX_RT) {
                               ^
-..\RNET\Radio.c:400:31: error: 'RF1_FLUSH_TX' undeclared (first use in this function)
-                     RF1_Write(RF1_FLUSH_TX);      /* flush old data */
-                               ^
 ..\RNET\Radio.c: In function 'RADIO_PowerUp':
-..\RNET\Radio.c:537:11: warning: implicit declaration of function 'RF1_WriteRegister' [-Wimplicit-function-declaration]
+..\RNET\Radio.c:604:11: warning: implicit declaration of function 'RF1_WriteRegister' [-Wimplicit-function-declaration]
      (void)RF1_WriteRegister(RF1_EN_RXADDR, RF1_EN_RXADDR_ERX_ALL);
            ^
-..\RNET\Radio.c:537:29: error: 'RF1_EN_RXADDR' undeclared (first use in this function)
+..\RNET\Radio.c:604:29: error: 'RF1_EN_RXADDR' undeclared (first use in this function)
      (void)RF1_WriteRegister(RF1_EN_RXADDR, RF1_EN_RXADDR_ERX_ALL);
                              ^
-..\RNET\Radio.c:537:44: error: 'RF1_EN_RXADDR_ERX_ALL' undeclared (first use in this function)
+..\RNET\Radio.c:604:44: error: 'RF1_EN_RXADDR_ERX_ALL' undeclared (first use in this function)
      (void)RF1_WriteRegister(RF1_EN_RXADDR, RF1_EN_RXADDR_ERX_ALL);
                                             ^
-..\RNET\Radio.c:540:5: warning: implicit declaration of function 'RF1_ResetStatusIRQ' [-Wimplicit-function-declaration]
-     RF1_ResetStatusIRQ(RF1_STATUS_RX_DR | RF1_STATUS_TX_DS | RF1_STATUS_MAX_RT);
-     ^
-..\RNET\Radio.c:540:24: error: 'RF1_STATUS_RX_DR' undeclared (first use in this function)
-     RF1_ResetStatusIRQ(RF1_STATUS_RX_DR | RF1_STATUS_TX_DS | RF1_STATUS_MAX_RT);
-                        ^
-..\RNET\Radio.c:540:43: error: 'RF1_STATUS_TX_DS' undeclared (first use in this function)
-     RF1_ResetStatusIRQ(RF1_STATUS_RX_DR | RF1_STATUS_TX_DS | RF1_STATUS_MAX_RT);
-                                           ^
-..\RNET\Radio.c:540:62: error: 'RF1_STATUS_MAX_RT' undeclared (first use in this function)
-     RF1_ResetStatusIRQ(RF1_STATUS_RX_DR | RF1_STATUS_TX_DS | RF1_STATUS_MAX_RT);
-                                                              ^
-..\RNET\Radio.c:549:11: warning: implicit declaration of function 'RF1_EnableAutoAck' [-Wimplicit-function-declaration]
+..\RNET\Radio.c:617:11: warning: implicit declaration of function 'RF1_EnableAutoAck' [-Wimplicit-function-declaration]
      (void)RF1_EnableAutoAck(RF1_EN_AA_ENAA_ALL);
            ^
-..\RNET\Radio.c:549:29: error: 'RF1_EN_AA_ENAA_ALL' undeclared (first use in this function)
+..\RNET\Radio.c:617:29: error: 'RF1_EN_AA_ENAA_ALL' undeclared (first use in this function)
      (void)RF1_EnableAutoAck(RF1_EN_AA_ENAA_ALL);
                              ^
-..\RNET\Radio.c:553:23: error: 'RF1_SETUP_RETR' undeclared (first use in this function)
+..\RNET\Radio.c:621:23: error: 'RF1_SETUP_RETR' undeclared (first use in this function)
      RF1_WriteRegister(RF1_SETUP_RETR, RF1_SETUP_RETR_ARD_750 | RF1_SETUP_RETR_ARC_15);
                        ^
-..\RNET\Radio.c:553:39: error: 'RF1_SETUP_RETR_ARD_750' undeclared (first use in this function)
+..\RNET\Radio.c:621:39: error: 'RF1_SETUP_RETR_ARD_750' undeclared (first use in this function)
      RF1_WriteRegister(RF1_SETUP_RETR, RF1_SETUP_RETR_ARD_750 | RF1_SETUP_RETR_ARC_15);
                                        ^
-..\RNET\Radio.c:553:64: error: 'RF1_SETUP_RETR_ARC_15' undeclared (first use in this function)
+..\RNET\Radio.c:621:64: error: 'RF1_SETUP_RETR_ARC_15' undeclared (first use in this function)
      RF1_WriteRegister(RF1_SETUP_RETR, RF1_SETUP_RETR_ARD_750 | RF1_SETUP_RETR_ARC_15);
                                                                 ^
-..\RNET\Radio.c:477:9: warning: unused variable 'i' [-Wunused-variable]
+..\RNET\Radio.c:538:9: warning: unused variable 'i' [-Wunused-variable]
      int i;
          ^
-..\RNET\Radio.c:476:13: warning: unused variable 'addr' [-Wunused-variable]
+..\RNET\Radio.c:537:13: warning: unused variable 'addr' [-Wunused-variable]
      uint8_t addr[RADIO_NOF_ADDR_BYTES];
              ^
---------------- Build Failed: 01/27/2018 02:53:04 ---------------
+The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
+--------------- Build Failed: 01/27/2018 14:48:45 ---------------

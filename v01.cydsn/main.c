@@ -3,41 +3,21 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-// tasks
-//portTASK_FUNCTION_PROTO(vLEDTask, arg);
+#include "RNet_App.h"
 
-// setup
 void prvHardwareSetup(void);
 
 int main(void)
 {    
     prvHardwareSetup();
-/*
-    xTaskCreate(
-        (TaskFunction_t) vLEDTask
-        , "LED"
-        , configMINIMAL_STACK_SIZE
-        , (void*) 500
-        , tskIDLE_PRIORITY + 1
-        , NULL
-    );
-*/    
+
+    RNETApp_Init();
+    
     vTaskStartScheduler();
 
     while(1) {
     }
 }
-
-/*
-portTASK_FUNCTION_PROTO(vLEDTask, arg)
-{
-    (void)arg;
-    //const TickType_t time = pdMS_TO_TICKS((TickType_t) arg);
-    
-    while(1) {
-    }
-}
-*/
 
 void prvHardwareSetup(void)
 {
@@ -59,6 +39,10 @@ void prvHardwareSetup(void)
     
     // Start-up the peripherals.
     CyGlobalIntEnable;
+    
+    UART_Start();
+    // The SPI is started on the rf1_start function
+    RF1_start();
 }
 
 // The heap space has been execeeded.

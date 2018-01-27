@@ -67,6 +67,7 @@
 <name_val_pair name="Generated_Source\PSoC4\RF1_FUNCS.c" v="-mcpu=cortex-m0 -mthumb -I..\RNET -I..\FreeRTOS\include -I..\FreeRTOS\portable\GCC\ARM_CM0 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="Generated_Source\PSoC4\RF1_LL_SPI.c" v="-mcpu=cortex-m0 -mthumb -I..\RNET -I..\FreeRTOS\include -I..\FreeRTOS\portable\GCC\ARM_CM0 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="Generated_Source\PSoC4\RF1_COMMANDS.c" v="-mcpu=cortex-m0 -mthumb -I..\RNET -I..\FreeRTOS\include -I..\FreeRTOS\portable\GCC\ARM_CM0 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="RNet_App.c" v="-mcpu=cortex-m0 -mthumb -I..\RNET -I..\FreeRTOS\include -I..\FreeRTOS\portable\GCC\ARM_CM0 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 </name>
 </genericCmdLineData>
 <codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\Xwx47\AppData\Local\Cypress Semiconductor\PSoC Creator\4.1&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\Xwx47\Documents\Creator\RNET\v01.cydsn\v01.cyprj -d CY8C4245AXI-483 -s C:\Users\Xwx47\Documents\Creator\RNET\v01.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
@@ -78,7 +79,7 @@
 </CyGuid_597c5b74-0c46-4204-8b7f-96f3570671dc>
 </dataGuid>
 <dataGuid v="718b6b01-68ba-4a17-b632-d38dc61ebb3b">
-<CyGuid_718b6b01-68ba-4a17-b632-d38dc61ebb3b type_name="CyDesigner.Gde.Schematic.Symbolcatalog.CyComponentCatalogControl+CyCompCatalogData" version="1" tab="Community">
+<CyGuid_718b6b01-68ba-4a17-b632-d38dc61ebb3b type_name="CyDesigner.Gde.Schematic.Symbolcatalog.CyComponentCatalogControl+CyCompCatalogData" version="1" tab="Cypress">
 <tree_states_tab_names>
 <v>Community</v>
 <v>Cypress</v>
@@ -288,6 +289,16 @@
 <v>..\nRF24_Component\nRF24.cylib\nRF24_v1_7\API\NRF_COMMANDS.h</v>
 <v>..\nRF24_Component\nRF24.cylib\nRF24_v1_7\API\NRF_COMMANDS.c</v>
 <v>..\nRF24_Component\nRF24.cylib\nRF24_v1_7\API\NRF_CONFIG.h</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SW_Tx_UART_v1_50\SW_Tx_UART_v1_50.cysym</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SW_Tx_UART_v1_50\SW_Tx_UART_v1_50.cysch</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SW_Tx_UART_v1_50\SW_Tx_UART_v1_50.pdf</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SW_Tx_UART_v1_50\SW_Tx_UART_v1_50.cystate</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SW_Tx_UART_v1_50\PSoC4\API\SW_Tx_UART_AsmGnu.s</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SW_Tx_UART_v1_50\PSoC4\API\SW_Tx_UART_AsmRv.s</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SW_Tx_UART_v1_50\PSoC4\API\SW_Tx_UART.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SW_Tx_UART_v1_50\PSoC4\API\SW_Tx_UART.h</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SW_Tx_UART_v1_50\PSoC4\API\SW_Tx_UART_PVT.h</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SW_Tx_UART_v1_50\PSoC4\API\SW_Tx_UART_AsmIar.s</v>
 <v>.\v01.cydwr</v>
 <v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_60\PSoC4\API\cm0gcc.ld</v>
 <v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_60\PSoC4\API\Cm0RealView.scat</v>
@@ -409,13 +420,19 @@
 <v>Generated_Source\PSoC4\RF1_COMMANDS.h</v>
 <v>Generated_Source\PSoC4\RF1_COMMANDS.c</v>
 <v>Generated_Source\PSoC4\RF1_CONFIG.h</v>
+<v>Generated_Source\PSoC4\UART_AsmGnu.s</v>
+<v>Generated_Source\PSoC4\UART_AsmRv.s</v>
+<v>Generated_Source\PSoC4\UART.c</v>
+<v>Generated_Source\PSoC4\UART.h</v>
+<v>Generated_Source\PSoC4\UART_PVT.h</v>
+<v>Generated_Source\PSoC4\UART_AsmIar.s</v>
 </gen_list>
 <warp_dep>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\ieee\work\stdlogic.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 </warp_dep>
-<deps_time v="131615162893717726" />
+<deps_time v="131615598206001720" />
 <top_block v="TopDesign" />
 <last_generation v="1" />
 <pdl_path v="" />

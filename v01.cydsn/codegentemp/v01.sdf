@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2018-01-27T08:44:38Z")
+ (DATE "2018-01-27T20:50:07Z")
  (DESIGN "v01")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -25,6 +25,7 @@
     (INTERCONNECT \\SPI\:mosi_m\(0\)_PAD\\ \\SPI\:mosi_m\(0\)\\.pad_in (0.000:0.000:0.000))
     (INTERCONNECT SS\(0\)_PAD SS\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT CE\(0\)_PAD CE\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT \\UART\:tx\(0\)_PAD\\ \\UART\:tx\(0\)\\.pad_in (0.000:0.000:0.000))
    )
   )
  )

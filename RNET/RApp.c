@@ -70,6 +70,7 @@ static uint8_t IterateTable(RAPP_MSG_Type type, uint8_t size, uint8_t *data,
         }
         table++;
     }
+    
     return res;
 }
 

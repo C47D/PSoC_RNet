@@ -22,6 +22,7 @@
 //#include "Events.h" /* for event handler interface */
 #include "Error.h"
 #include <stdbool.h>
+#include "UART.h"
 
 /* if set to one, use dynamic payload size */
 #define NRF24_DYNAMIC_PAYLOAD   1
@@ -44,37 +45,49 @@
 static bool RADIO_isSniffing = false;
 /* we are using 5 address bytes */
 #define RADIO_NOF_ADDR_BYTES 5
+
 /* device address for pipe 0 */
 static const uint8_t RADIO_TADDR_P0[RADIO_NOF_ADDR_BYTES] = {
     0x11, 0x22, 0x33, 0x44, 0x55};
+
 /* device address for pipe 1 */
 static const uint8_t RADIO_TADDR_P1[RADIO_NOF_ADDR_BYTES] = {
     0xB3, 0xB4, 0xB5, 0xB6, 0xF1};
+
 /* device address for pipe 2 */
 static const uint8_t RADIO_TADDR_P2[1] = {0xF2};
+
 /* device address for pipe 3 */
 static const uint8_t RADIO_TADDR_P3[1] = {0xF3};
+
 /* device address for pipe 4 */
 static const uint8_t RADIO_TADDR_P4[1] = {0xF4};
+
 /* device address for pipe 5 */
 static const uint8_t RADIO_TADDR_P5[1] = {0xF5};
 
 #if RNET_CONFIG_SEND_RETRY_CNT > 0
 static uint8_t RADIO_RetryCnt;
-static uint8_t
-    TxDataBuffer[RPHY_BUFFER_SIZE]; /*!< global buffer if using retries */
+/*!< global buffer if using retries */
+static uint8_t TxDataBuffer[RPHY_BUFFER_SIZE];
 #endif
 
 /* Radio state definitions */
 typedef enum RADIO_AppStatusKind {
-    RADIO_INITIAL_STATE,      /* initial state of the state machine */
-    RADIO_RECEIVER_ALWAYS_ON, /* receiver is in RX mode */
-    RADIO_TRANSMIT_DATA,      /* send data */
-    RADIO_WAITING_DATA_SENT,  /* wait until data is sent */
+    /* initial state of the state machine */
+    RADIO_INITIAL_STATE,
+    /* receiver is in RX mode */
+    RADIO_RECEIVER_ALWAYS_ON,
+    /* send data */
+    RADIO_TRANSMIT_DATA,
+    /* wait until data is sent */
+    RADIO_WAITING_DATA_SENT,
     RADIO_TIMEOUT,
     RADIO_READY_FOR_TX_RX_DATA,
-    RADIO_CHECK_TX,   /* send data if any */
-    RADIO_POWER_DOWN, /* transceiver powered down */
+    /* send data if any */
+    RADIO_CHECK_TX,
+    /* transceiver powered down */
+    RADIO_POWER_DOWN,
 } RADIO_AppStatusKind;
 
 static RADIO_AppStatusKind RADIO_AppStatus = RADIO_INITIAL_STATE;
@@ -87,7 +100,9 @@ static volatile bool RADIO_isrFlag; /* flag set by ISR */
 
 static void Err(unsigned char *msg)
 {
-    (void)msg; /* not used, as no Shell used */
+    /* not used, as no Shell used */
+    //(void)msg;
+    UART_PutString(msg);
 }
 
 /* callback called from radio driver */
@@ -103,9 +118,11 @@ uint8_t RADIO_FlushQueues(void)
     if (RPHY_FlushRxQueue() != ERR_OK) {
         res = ERR_FAILED;
     }
+    
     if (RPHY_FlushTxQueue() != ERR_OK) {
         res = ERR_FAILED;
     }
+    
     return res;
 }
 
@@ -115,38 +132,48 @@ static uint8_t RADIO_Flush(void)
     // RF1_Write(RF1_FLUSH_TX); /* flush old data */
     RF1_flush_rx_cmd();
     RF1_flush_rx_cmd();
+    
     return ERR_OK;
 }
 
 bool RADIO_CanDoPowerDown(void)
 {
+    /* interrupt pending */
     if (RADIO_isrFlag) {
-        return false; /* interrupt pending */
+        return false;
     }
     
     switch (RADIO_AppStatus) {
+    
+    /* sending/receiving data, cannot power down */
     case RADIO_TRANSMIT_DATA:
     case RADIO_WAITING_DATA_SENT:
     case RADIO_TIMEOUT:
-        return false; /* sending/receiving data, cannot power down */
+        return false;
 
+    /* check other conditions */
     case RADIO_INITIAL_STATE:
     case RADIO_RECEIVER_ALWAYS_ON:
     case RADIO_READY_FOR_TX_RX_DATA:
     case RADIO_CHECK_TX:
     case RADIO_POWER_DOWN:
-        break; /* check other conditions */
+        break;
     default:
         break;
     }
     
+    /* items received, cannot power down */
     if (RMSG_RxQueueNofItems() != 0) {
-        return false; /* items received, cannot power down */
+        return false;
     }
+    
+    /* items to be sent, cannot power down */
     if (RMSG_TxQueueNofItems() != 0) {
-        return false; /* items to be sent, cannot power down */
+        return false;
     }
-    return true; /* ok to power down */
+    
+    /* ok to power down */
+    return true;
 }
 
 uint8_t RADIO_PowerDown(void)
@@ -155,16 +182,19 @@ uint8_t RADIO_PowerDown(void)
 
     res = RADIO_Flush();
     POWERDOWN();
+    
     return res;
 }
 
 static uint8_t CheckTx(void)
 {
     RPHY_PacketDesc packet;
+    
 #if RNET_CONFIG_SEND_RETRY_CNT == 0
-    uint8_t TxDataBuffer[RPHY_BUFFER_SIZE]; /* local tx buffer if not using
-                                               retries */
+    /* local tx buffer if not using retries */
+    uint8_t TxDataBuffer[RPHY_BUFFER_SIZE];
 #endif
+
     RPHY_FlagsType flags;
 
     if (RMSG_GetTxMsg(TxDataBuffer, sizeof(TxDataBuffer)) == ERR_OK) {
@@ -172,24 +202,33 @@ static uint8_t CheckTx(void)
         if (flags & RPHY_PACKET_FLAGS_POWER_DOWN) {
             /* special request */
             (void)RADIO_PowerDown();
-            return ERR_DISABLED; /* no more data, pipes flushed */
+            
+            /* no more data, pipes flushed */
+            return ERR_DISABLED;
         }
+        
         //RF1_StopRxTx(); /* CE low */
         RF1_stop_listening();
+        
         TX_POWERUP();
+        
         /* set up packet structure */
         packet.phyData = &TxDataBuffer[0];
         packet.flags = flags;
         packet.phySize = sizeof(TxDataBuffer);
+
 #if NRF24_DYNAMIC_PAYLOAD
         packet.rxtx = RPHY_BUF_PAYLOAD_START(packet.phyData);
 #else
-        packet.rxtx =
-            &RPHY_BUF_SIZE(packet.phyData); /* we transmit the data size too */
+        /* we transmit the data size too */
+        packet.rxtx = &RPHY_BUF_SIZE(packet.phyData);
 #endif
+
+        /* sniff outgoing packet */
         if (RADIO_isSniffing) {
-            RPHY_SniffPacket(&packet, true); /* sniff outgoing packet */
+            RPHY_SniffPacket(&packet, true);
         }
+        
 #if NRF24_DYNAMIC_PAYLOAD
         /* send data, using dynamic payload size */
         //RF1_TxPayload(packet.rxtx, RPHY_BUF_SIZE(packet.phyData));
@@ -199,17 +238,22 @@ static uint8_t CheckTx(void)
         // RF1_TxPayload(packet.rxtx, RPHY_PAYLOAD_SIZE);
         RF1_transmit(packet.rxtx, RPHY_PAYLOAD_SIZE);
 #endif
+
         return ERR_OK;
     }
-    return ERR_NOTAVAIL; /* no data to send? */
+    
+    /* no data to send? */
+    return ERR_NOTAVAIL;
 }
 
 /* called to check if we have something in the RX queue. If so, we queue it */
 static uint8_t CheckRx(void)
 {
+    
 #if NRF24_DYNAMIC_PAYLOAD
     uint8_t payloadSize;
 #endif
+
     uint8_t res = ERR_OK;
     uint8_t RxDataBuffer[RPHY_BUFFER_SIZE];
     uint8_t status;
@@ -220,14 +264,17 @@ static uint8_t CheckRx(void)
     packet.flags = RPHY_PACKET_FLAGS_NONE;
     packet.phyData = &RxDataBuffer[0];
     packet.phySize = sizeof(RxDataBuffer);
+
 #if NRF24_DYNAMIC_PAYLOAD
     packet.rxtx = RPHY_BUF_PAYLOAD_START(packet.phyData);
 #else
-    packet.rxtx =
-        &RPHY_BUF_SIZE(packet.phyData); /* we transmit the data size too */
+    /* we transmit the data size too */
+    packet.rxtx = &RPHY_BUF_SIZE(packet.phyData);
 #endif
+
     status = RF1_GetStatusClrIRQ();
     hasRx = (status & RF1_STATUS_RX_DR) != 0;
+    
 #if !RF1_CONFIG_IRQ_PIN_ENABLED
 #if 1             /* experimental */
     if (!hasRx) { /* interrupt flag not set, check if we have otherwise data */
@@ -239,6 +286,7 @@ static uint8_t CheckRx(void)
     }
 #endif
 #endif
+
     if (hasRx) { /* data received interrupt */
         hasRxData = true;
 #if NRF24_DYNAMIC_PAYLOAD
@@ -258,12 +306,11 @@ static uint8_t CheckRx(void)
                                                 transmit <size> as payload! */
 #endif
     }
-    if (hasRxData) {
+    
     /* put message into Rx queue */
+    if (hasRxData) {
 #if RNET1_CREATE_EVENTS
-        /*lint -save -e522 function lacks side effect  */
         RNET1_OnRadioEvent(RNET1_RADIO_MSG_RECEIVED);
-        /*lint -restore */
 #endif
         res = RMSG_QueueRxMsg(packet.phyData, packet.phySize,
                               RPHY_BUF_SIZE(packet.phyData), packet.flags);
@@ -277,6 +324,7 @@ static uint8_t CheckRx(void)
     } else {
         res = ERR_RXEMPTY; /* no data */
     }
+    
     return res;
 }
 
@@ -291,12 +339,15 @@ static void WaitRandomTime(void)
 
 static void RADIO_HandleStateMachine(void)
 {
+    
 #if RADIO_WAITNG_TIMEOUT_MS > 0
     static TickType_t sentTimeTickCntr = 0; /* used for timeout */
 #endif
-    uint8_t status, res;
+    uint8_t status = 0;
+    uint8_t res = 0;
 
-    for (;;) { /* will break/return */
+    /* will break/return */
+    for (;;) {
         switch (RADIO_AppStatus) {
         case RADIO_INITIAL_STATE:
             //RF1_StopRxTx(); /* will send/receive data later */
@@ -304,20 +355,20 @@ static void RADIO_HandleStateMachine(void)
             RADIO_AppStatus = RADIO_RECEIVER_ALWAYS_ON; /* turn receive on */
             break; /* process switch again */
 
-        case RADIO_RECEIVER_ALWAYS_ON: /* turn receive on */
-            RX_POWERUP();
+        case RADIO_RECEIVER_ALWAYS_ON:
+            RX_POWERUP(); /* turn receive on */
             //RF1_StartRxTx(); /* Listening for packets */
             RF1_start_listening();
             RADIO_AppStatus = RADIO_READY_FOR_TX_RX_DATA;
             break; /* process switch again */
 
-        case RADIO_READY_FOR_TX_RX_DATA: /* we are ready to receive/send data
-                                            data */
+        /* we are ready to receive/send data */
+        case RADIO_READY_FOR_TX_RX_DATA:
 #if !RF1_CONFIG_IRQ_PIN_ENABLED
             RF1_PollInterrupt();
 #if 1                             /* experimental */
-            if (!RADIO_isrFlag) { /* interrupt flag not set, check if we have
-                                     otherwise data */
+            /* interrupt flag not set, check if we have otherwise data */
+            if (!RADIO_isrFlag) {
                 (void)RF1_GetFifoStatus(&status);
                 if (!(status & RF1_FIFO_STATUS_RX_EMPTY) ||
                     (status & RF1_FIFO_STATUS_RX_FULL)) { /* Rx not empty? */
@@ -336,45 +387,53 @@ static void RADIO_HandleStateMachine(void)
                     return;                       /* get out of loop */
                 }
                 (void)RF1_GetFifoStatus(&status);
+                
+                /* no data, but still flag set? */
                 if (res == ERR_RXEMPTY &&
-                    !(status & RF1_FIFO_STATUS_RX_EMPTY)) { /* no data, but
-                                                               still flag set?
-                                                             */
-                    RF1_Write(RF1_FLUSH_RX);                /* flush old data */
-                    RADIO_AppStatus =
-                        RADIO_RECEIVER_ALWAYS_ON; /* continue listening */
+                    !(status & RF1_FIFO_STATUS_RX_EMPTY)) {
+                    //RF1_Write(RF1_FLUSH_RX); /* flush old data */
+                    RF1_flush_rx_cmd();
+                    
+                    /* continue listening */
+                    RADIO_AppStatus = RADIO_RECEIVER_ALWAYS_ON;
+                    
+                /* Rx not empty? */
                 } else if (!(status & RF1_FIFO_STATUS_RX_EMPTY) ||
-                           (status &
-                            RF1_FIFO_STATUS_RX_FULL)) { /* Rx not empty? */
+                           (status & RF1_FIFO_STATUS_RX_FULL)) {
                     RADIO_isrFlag = true; /* stay in current state */
                 } else {
                     RADIO_AppStatus =
                         RADIO_RECEIVER_ALWAYS_ON; /* continue listening */
                 }
 #else
-                RADIO_AppStatus =
-                    RADIO_RECEIVER_ALWAYS_ON; /* continue listening */
+                /* continue listening */
+                RADIO_AppStatus = RADIO_RECEIVER_ALWAYS_ON;
 #endif
                 break; /* process switch again */
             }
+            
 #if RNET_CONFIG_SEND_RETRY_CNT > 0
             RADIO_RetryCnt = 0;
 #endif
-            RADIO_AppStatus =
-                RADIO_CHECK_TX; /* check if we can send something */
+
+            /* check if we can send something */
+            RADIO_AppStatus = RADIO_CHECK_TX;
             break;
 
         case RADIO_CHECK_TX:
             res = CheckTx();
-            if (res == ERR_OK) { /* there was data and it has been sent */
+            
+            /* there was data and it has been sent */
+            if (res == ERR_OK) {
 #if RADIO_WAITNG_TIMEOUT_MS > 0
-                sentTimeTickCntr = xTaskGetTickCount(); /* remember time when it
-                                                           was sent, used for
-                                                           timeout */
+                /* remember time when it was sent, used for timeout */
+                sentTimeTickCntr = xTaskGetTickCount();
 #endif
                 RADIO_AppStatus = RADIO_WAITING_DATA_SENT;
                 break;                        /* process switch again */
-            } else if (res == ERR_DISABLED) { /* powered down transceiver */
+
+            /* powered down transceiver */
+            } else if (res == ERR_DISABLED) {
                 RADIO_AppStatus = RADIO_POWER_DOWN;
             } else {
                 RADIO_AppStatus = RADIO_READY_FOR_TX_RX_DATA;
@@ -392,12 +451,16 @@ static void RADIO_HandleStateMachine(void)
                 RF1_PollInterrupt();
             }
 #endif
-            if (RADIO_isrFlag) { /* check if we have received an interrupt: this
-                                    is either timeout or low level ack */
+
+/* check if we have received an interrupt: this is either timeout or low level ack */
+            if (RADIO_isrFlag) {
                 RADIO_isrFlag = false; /* reset interrupt flag */
                 status = RF1_GetStatusClrIRQ();
-                if (status & RF1_STATUS_MAX_RT) { /* retry timeout interrupt */
-                    RF1_Write(RF1_FLUSH_TX);      /* flush old data */
+                
+                /* retry timeout interrupt */
+                if (status & RF1_STATUS_MAX_RT) {
+                    //RF1_Write(RF1_FLUSH_TX);      /* flush old data */
+                    RF1_flush_rx_cmd();
                     RADIO_AppStatus = RADIO_TIMEOUT; /* timeout */
                     WaitRandomTime();
                 } else {
@@ -406,17 +469,19 @@ static void RADIO_HandleStateMachine(void)
                     RNET1_OnRadioEvent(RNET1_RADIO_MSG_SENT);
                     /*lint -restore */
 #endif
-                    RADIO_AppStatus =
-                        RADIO_RECEIVER_ALWAYS_ON; /* turn receive on */
+                    /* turn receive on */
+                    RADIO_AppStatus = RADIO_RECEIVER_ALWAYS_ON;
                 }
                 break; /* process switch again */
             }
+            
 #if RADIO_WAITNG_TIMEOUT_MS > 0
             if (pdMS_TO_TICKS((xTaskGetTickCount() - sentTimeTickCntr)) >
                 RADIO_WAITNG_TIMEOUT_MS) {
                 RADIO_AppStatus = RADIO_TIMEOUT; /* timeout */
             }
 #endif
+
             return;
 
         case RADIO_TIMEOUT:
@@ -424,9 +489,7 @@ static void RADIO_HandleStateMachine(void)
             if (RADIO_RetryCnt < RNET_CONFIG_SEND_RETRY_CNT) {
                 Err((unsigned char *)"ERR: Retry\r\n");
 #if RNET1_CREATE_EVENTS
-                /*lint -save -e522 function lacks side effect  */
                 RNET1_OnRadioEvent(RNET1_RADIO_RETRY);
-                /*lint -restore */
 #endif
                 RADIO_RetryCnt++;
                 if (RMSG_PutRetryTxMsg(TxDataBuffer, sizeof(TxDataBuffer)) ==
@@ -443,11 +506,11 @@ static void RADIO_HandleStateMachine(void)
                 }
             }
 #endif
+
             Err((unsigned char *)"ERR: Timeout\r\n");
+
 #if RNET1_CREATE_EVENTS
-            /*lint -save -e522 function lacks side effect  */
             RNET1_OnRadioEvent(RNET1_RADIO_TIMEOUT);
-            /*lint -restore */
 #endif
             RADIO_AppStatus = RADIO_RECEIVER_ALWAYS_ON; /* turn receive on */
             break; /* process switch again */
@@ -498,10 +561,8 @@ uint8_t RADIO_PowerUp(void)
     RF1_enable_dynamic_payload(NRF_PIPE4);
     RF1_enable_dynamic_payload(NRF_PIPE5);
 #else
-    (void)RF1_SetStaticPipePayload(0, RPHY_PAYLOAD_SIZE); /* static number of
-                                                             payload bytes we
-                                                             want to send and
-                                                             receive */
+    /* static number of payload bytes we want to send and receive */
+    (void)RF1_SetStaticPipePayload(0, RPHY_PAYLOAD_SIZE);
 #endif
     (void)RADIO_SetChannel(RADIO_CurrChannel);
 
@@ -515,6 +576,10 @@ uint8_t RADIO_PowerUp(void)
     /* Pipes 0 to 5 */
     //(void)RF1_SetRxAddress(0, (uint8_t *)RADIO_TADDR_P0, RADIO_NOF_ADDR_BYTES);
     //(void)RF1_SetRxAddress(1, (uint8_t *)RADIO_TADDR_P1, RADIO_NOF_ADDR_BYTES);
+    RF1_set_rx_pipe_0_address(RADIO_TADDR_P0, RADIO_NOF_ADDR_BYTES);
+    
+    RF1_set_rx_pipe_1_address(RADIO_TADDR_P1, RADIO_NOF_ADDR_BYTES);
+    
     /* for the following pipes, use P1 as base. Only need to write single byte
      * to transceiver */
     //for (i = 0; i < RADIO_NOF_ADDR_BYTES; i++) {
@@ -522,22 +587,27 @@ uint8_t RADIO_PowerUp(void)
     //}
     //addr[RADIO_NOF_ADDR_BYTES - 1] = RADIO_TADDR_P2[0];
     //(void)RF1_SetRxAddress(2, addr, RADIO_NOF_ADDR_BYTES);
+    RF1_set_rx_pipe_2_address(RADIO_TADDR_P2[0]);
 
     //addr[RADIO_NOF_ADDR_BYTES - 1] = RADIO_TADDR_P3[0];
     //(void)RF1_SetRxAddress(3, addr, RADIO_NOF_ADDR_BYTES);
-
+    RF1_set_rx_pipe_3_address(RADIO_TADDR_P3[0]);
+    
     //addr[RADIO_NOF_ADDR_BYTES - 1] = RADIO_TADDR_P4[0];
     //(void)RF1_SetRxAddress(4, addr, RADIO_NOF_ADDR_BYTES);
-
+    RF1_set_rx_pipe_4_address(RADIO_TADDR_P4[0]);
+    
     //addr[RADIO_NOF_ADDR_BYTES - 1] = RADIO_TADDR_P5[0];
     //(void)RF1_SetRxAddress(5, addr, RADIO_NOF_ADDR_BYTES);
-
+    RF1_set_rx_pipe_5_address(RADIO_TADDR_P5[0]);
+    
     /* Enable RX_ADDR address matching */
     /* enable all data pipes */
     (void)RF1_WriteRegister(RF1_EN_RXADDR, RF1_EN_RXADDR_ERX_ALL);
 
     /* clear interrupt flags */
-    RF1_ResetStatusIRQ(RF1_STATUS_RX_DR | RF1_STATUS_TX_DS | RF1_STATUS_MAX_RT);
+    //RF1_ResetStatusIRQ(RF1_STATUS_RX_DR | RF1_STATUS_TX_DS | RF1_STATUS_MAX_RT);
+    RF1_clear_all_irqs();
 
     /* rx/tx mode */
 #if NRF24_AUTO_ACKNOWLEDGE

@@ -41,6 +41,12 @@
   <file name="C:\Users\Xwx47\Documents\Creator\RNET\v01.cydsn\codegentemp\RF1_COMMANDS.h" value="HEADER;;;;;RF1" />
   <file name="C:\Users\Xwx47\Documents\Creator\RNET\v01.cydsn\codegentemp\RF1_COMMANDS.c" value="SOURCE_C;CortexM0;;;;RF1" />
   <file name="C:\Users\Xwx47\Documents\Creator\RNET\v01.cydsn\codegentemp\RF1_CONFIG.h" value="HEADER;;;;;RF1" />
+  <file name="C:\Users\Xwx47\Documents\Creator\RNET\v01.cydsn\codegentemp\UART_AsmGnu.s" value="SOURCE_ASM;CortexM0,CortexM0p,CortexM3,CortexM4,CortexM7;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;UART" />
+  <file name="C:\Users\Xwx47\Documents\Creator\RNET\v01.cydsn\codegentemp\UART_AsmRv.s" value="SOURCE_ASM;CortexM0,CortexM0p,CortexM3,CortexM4,CortexM7;;fdb8e1ae-f83a-46cf-9446-1d703716f38a;;UART" />
+  <file name="C:\Users\Xwx47\Documents\Creator\RNET\v01.cydsn\codegentemp\UART.c" value="SOURCE_C;CortexM0;;;;UART" />
+  <file name="C:\Users\Xwx47\Documents\Creator\RNET\v01.cydsn\codegentemp\UART.h" value="HEADER;;;;;UART" />
+  <file name="C:\Users\Xwx47\Documents\Creator\RNET\v01.cydsn\codegentemp\UART_PVT.h" value="HEADER;;;;;UART" />
+  <file name="C:\Users\Xwx47\Documents\Creator\RNET\v01.cydsn\codegentemp\UART_AsmIar.s" value="SOURCE_ASM;CortexM0,CortexM0p,CortexM3,CortexM4,CortexM7;;e9305a93-d091-4da5-bdc7-2813049dcdbf;;UART" />
   <file name="C:\Users\Xwx47\Documents\Creator\RNET\v01.cydsn\codegentemp\SPI_SCBCLK.c" value="SOURCE_C;CortexM0;;;;SPI_SCBCLK" />
   <file name="C:\Users\Xwx47\Documents\Creator\RNET\v01.cydsn\codegentemp\SPI_SCBCLK.h" value="HEADER;;;;;SPI_SCBCLK" />
   <file name="C:\Users\Xwx47\Documents\Creator\RNET\v01.cydsn\codegentemp\SPI_sclk_m.c" value="SOURCE_C;CortexM0;;;;SPI_sclk_m" />

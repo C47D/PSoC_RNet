@@ -33,6 +33,8 @@
 #include "RF1_LL_SPI.h"
 #include "RF1_COMMANDS.h"
 #include "RF1_CONFIG.h"
+#include "UART.h"
+#include "UART_PVT.h"
 #include "SPI_SCBCLK.h"
 #include "SPI_sclk_m.h"
 #include "SPI_sclk_m_aliases.h"
