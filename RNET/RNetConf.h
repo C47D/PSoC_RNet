@@ -11,11 +11,14 @@
 #ifndef RNETCONF_H_
 #define RNETCONF_H_
 
-//#include "RNET1.h"  /* component main header file, NOT FOUND */
-#include "nRF24_FUNCS.h"
-
 #include "RNet_AppConfig.h" /* User application configuration file */
 #include "RNET1config.h"  /* configuration file */
+
+//#include "RNET1.h"  /* component main header file, NOT FOUND */
+#include "RF1_REGS.h"
+#include "RF1_COMMANDS.h"
+#include "RF1_FUNCS.h"
+#include "RF1_LL_SPI.h"
 
 /* Default configuration items, can be overwritten by the application configuration header file: */
 #define RNET_CONFIG_TRANSCEIVER_NRF24   1 

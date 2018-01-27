@@ -10,6 +10,10 @@
 #ifndef RPHY_H_
 #define RPHY_H_
 
+#include <stdint.h>
+#include <stddef.h>
+#include <stdbool.h>
+
 #include "RNetConf.h"
 /* payload format is:
  * PHY: <flags><size><phy payload>

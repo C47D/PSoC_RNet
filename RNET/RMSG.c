@@ -7,10 +7,12 @@
  *
  * This module uses queues to retrieve and store radio messages.
  */
+#include "FreeRTOS.h"
+#include "queue.h"
 
 #include "RMSG.h"
 #include "RNetConf.h"
-//#include "FRTOS1.h"
+
 #include "Error.h"
 #include "RPHY.h"
 
@@ -24,7 +26,8 @@
 #define RMSG_QUEUE_PUT_WAIT (RNET_CONFIG_MSG_QUEUE_PUT_BLOCK_TIME_MS)
 
 /* queue for messages, format is: kind(8bit) dataSize(8bit) data */
-static xQueueHandle RMSG_MsgRxQueue, RMSG_MsgTxQueue;
+//static xQueueHandle RMSG_MsgRxQueue, RMSG_MsgTxQueue; <- old
+static QueueHandle_t RMSG_MsgRxQueue, RMSG_MsgTxQueue;
 
 unsigned int RMSG_RxQueueNofItems(void)
 {
@@ -58,7 +61,8 @@ uint8_t RMSG_QueuePut(uint8_t *buf, size_t bufSize, uint8_t payloadSize,
 {
     /* data format is: dataSize(8bit) data */
     uint8_t res = ERR_OK;
-    xQueueHandle queue;
+    //xQueueHandle queue;
+    QueueHandle_t queue;
     BaseType_t qRes;
 
     if (payloadSize > RPHY_PAYLOAD_SIZE) {

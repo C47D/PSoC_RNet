@@ -10,6 +10,10 @@
 #ifndef RNWK_H_
 #define RNWK_H_
 
+#include <stdint.h>
+#include <stddef.h>
+#include <stdbool.h>
+
 #include "RNetConf.h"
 #include "RMAC.h"
 #include "RPHY.h"

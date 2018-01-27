@@ -8,13 +8,12 @@
  * This module deals with the low level functions of the transceiver.
  */
 
+#include "FreeRTOS.h"
+#include "task.h"
+
 #include "Radio.h"
 #include "RNetConf.h"
 #include "RadioNRF24.h"
-//#include "RF1.h"
-#include "RF1_COMMANDS.h"
-#include "RF1_FUNCS.h"
-#include "RF1_LL_SPI.h"
 
 #include "RMSG.h"
 #include "RPHY.h"
@@ -562,8 +561,9 @@ uint8_t RADIO_PowerUp(void)
     /* init Rx descriptor */
     radioRx.phyData = &radioRxBuf[0];
     radioRx.phySize = sizeof(radioRxBuf);
-    radioRx.rxtx =
-        &RPHY_BUF_SIZE(radioRx.phyData); /* we transmit the size too */
+    /* we transmit the size too */
+    radioRx.rxtx = &RPHY_BUF_SIZE(radioRx.phyData);
+    
     return ERR_OK;
 }
 

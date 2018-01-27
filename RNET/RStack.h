@@ -17,4 +17,3 @@ void RSTACK_Init(void);
 void RSTACK_Deinit(void);
 
 #endif /* RSTACK_H_ */
-

@@ -1,0 +1,2729 @@
+--------------- Rebuild Started: 01/27/2018 02:43:38 Project: v01, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+Deleting file ".\v01.cycdx"
+Deleting file ".\v01.svd"
+Deleting file ".\v01.rpt"
+Deleting file ".\v01_timing.html"
+cydsfit.exe -.appdatapath "C:\Users\Xwx47\AppData\Local\Cypress Semiconductor\PSoC Creator\4.1" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\Xwx47\Documents\Creator\RNET\v01.cydsn\v01.cyprj -d CY8C4245AXI-483 -s C:\Users\Xwx47\Documents\Creator\RNET\v01.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+HDL Generation...
+Synthesis...
+Tech Mapping...
+ADD: pft.M0040: information: The following 5 pin(s) will be assigned a location by the fitter: \SPI:miso_m(0)\, \SPI:mosi_m(0)\, \SPI:sclk_m(0)\, CE(0), SS(0)
+Analog Placement...
+Analog Routing...
+Analog Code Generation...
+Digital Placement...
+Digital Routing...
+Bitstream Generation...
+Bitstream Verification...
+Static timing analysis...
+API Generation...
+Dependency Generation...
+Cleanup...
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I..\RNET -I..\FreeRTOS\include -I..\FreeRTOS\portable\GCC\ARM_CM0 -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Radio.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\RNET\Radio.c -o .\CortexM0\ARM_GCC_541\Debug\Radio.o
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:32:5: error: redeclaration of enumerator 'NRF_CONFIG_REG'
+     NRF_CONFIG_REG      = 0x00,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:32:5: note: previous definition of 'NRF_CONFIG_REG' was here
+     NRF_CONFIG_REG      = 0x00,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:33:5: error: redeclaration of enumerator 'NRF_EN_AA_REG'
+     NRF_EN_AA_REG       = 0x01,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:33:5: note: previous definition of 'NRF_EN_AA_REG' was here
+     NRF_EN_AA_REG       = 0x01,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:34:5: error: redeclaration of enumerator 'NRF_EN_RXADDR_REG'
+     NRF_EN_RXADDR_REG   = 0x02,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:34:5: note: previous definition of 'NRF_EN_RXADDR_REG' was here
+     NRF_EN_RXADDR_REG   = 0x02,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:35:5: error: redeclaration of enumerator 'NRF_SETUP_AW_REG'
+     NRF_SETUP_AW_REG    = 0x03,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:35:5: note: previous definition of 'NRF_SETUP_AW_REG' was here
+     NRF_SETUP_AW_REG    = 0x03,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:36:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_REG'
+     NRF_SETUP_RETR_REG  = 0x04,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:36:5: note: previous definition of 'NRF_SETUP_RETR_REG' was here
+     NRF_SETUP_RETR_REG  = 0x04,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:37:5: error: redeclaration of enumerator 'NRF_RF_CH_REG'
+     NRF_RF_CH_REG       = 0x05,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:37:5: note: previous definition of 'NRF_RF_CH_REG' was here
+     NRF_RF_CH_REG       = 0x05,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:38:5: error: redeclaration of enumerator 'NRF_RF_SETUP_REG'
+     NRF_RF_SETUP_REG    = 0x06,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:38:5: note: previous definition of 'NRF_RF_SETUP_REG' was here
+     NRF_RF_SETUP_REG    = 0x06,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:39:5: error: redeclaration of enumerator 'NRF_STATUS_REG'
+     NRF_STATUS_REG      = 0x07,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:39:5: note: previous definition of 'NRF_STATUS_REG' was here
+     NRF_STATUS_REG      = 0x07,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:40:5: error: redeclaration of enumerator 'NRF_OBSERVE_TX_REG'
+     NRF_OBSERVE_TX_REG  = 0x08,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:40:5: note: previous definition of 'NRF_OBSERVE_TX_REG' was here
+     NRF_OBSERVE_TX_REG  = 0x08,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:41:5: error: redeclaration of enumerator 'NRF_RPD_REG'
+     NRF_RPD_REG         = 0x09,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:41:5: note: previous definition of 'NRF_RPD_REG' was here
+     NRF_RPD_REG         = 0x09,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:42:5: error: redeclaration of enumerator 'NRF_RX_ADDR_P0_REG'
+     NRF_RX_ADDR_P0_REG  = 0x0A,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:42:5: note: previous definition of 'NRF_RX_ADDR_P0_REG' was here
+     NRF_RX_ADDR_P0_REG  = 0x0A,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:43:5: error: redeclaration of enumerator 'NRF_RX_ADDR_P1_REG'
+     NRF_RX_ADDR_P1_REG  = 0x0B,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:43:5: note: previous definition of 'NRF_RX_ADDR_P1_REG' was here
+     NRF_RX_ADDR_P1_REG  = 0x0B,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:44:5: error: redeclaration of enumerator 'NRF_RX_ADDR_P2_REG'
+     NRF_RX_ADDR_P2_REG  = 0x0C,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:44:5: note: previous definition of 'NRF_RX_ADDR_P2_REG' was here
+     NRF_RX_ADDR_P2_REG  = 0x0C,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:45:5: error: redeclaration of enumerator 'NRF_RX_ADDR_P3_REG'
+     NRF_RX_ADDR_P3_REG  = 0x0D,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:45:5: note: previous definition of 'NRF_RX_ADDR_P3_REG' was here
+     NRF_RX_ADDR_P3_REG  = 0x0D,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:46:5: error: redeclaration of enumerator 'NRF_RX_ADDR_P4_REG'
+     NRF_RX_ADDR_P4_REG  = 0x0E,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:46:5: note: previous definition of 'NRF_RX_ADDR_P4_REG' was here
+     NRF_RX_ADDR_P4_REG  = 0x0E,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:47:5: error: redeclaration of enumerator 'NRF_RX_ADDR_P5_REG'
+     NRF_RX_ADDR_P5_REG  = 0x0F,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:47:5: note: previous definition of 'NRF_RX_ADDR_P5_REG' was here
+     NRF_RX_ADDR_P5_REG  = 0x0F,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:48:5: error: redeclaration of enumerator 'NRF_TX_ADDR_REG'
+     NRF_TX_ADDR_REG     = 0x10,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:48:5: note: previous definition of 'NRF_TX_ADDR_REG' was here
+     NRF_TX_ADDR_REG     = 0x10,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:49:5: error: redeclaration of enumerator 'NRF_RX_PW_P0_REG'
+     NRF_RX_PW_P0_REG    = 0x11,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:49:5: note: previous definition of 'NRF_RX_PW_P0_REG' was here
+     NRF_RX_PW_P0_REG    = 0x11,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:50:5: error: redeclaration of enumerator 'NRF_RX_PW_P1_REG'
+     NRF_RX_PW_P1_REG    = 0x12,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:50:5: note: previous definition of 'NRF_RX_PW_P1_REG' was here
+     NRF_RX_PW_P1_REG    = 0x12,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:51:5: error: redeclaration of enumerator 'NRF_RX_PW_P2_REG'
+     NRF_RX_PW_P2_REG    = 0x13,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:51:5: note: previous definition of 'NRF_RX_PW_P2_REG' was here
+     NRF_RX_PW_P2_REG    = 0x13,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:52:5: error: redeclaration of enumerator 'NRF_RX_PW_P3_REG'
+     NRF_RX_PW_P3_REG    = 0x14,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:52:5: note: previous definition of 'NRF_RX_PW_P3_REG' was here
+     NRF_RX_PW_P3_REG    = 0x14,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:53:5: error: redeclaration of enumerator 'NRF_RX_PW_P4_REG'
+     NRF_RX_PW_P4_REG    = 0x15,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:53:5: note: previous definition of 'NRF_RX_PW_P4_REG' was here
+     NRF_RX_PW_P4_REG    = 0x15,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:54:5: error: redeclaration of enumerator 'NRF_RX_PW_P5_REG'
+     NRF_RX_PW_P5_REG    = 0x16,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:54:5: note: previous definition of 'NRF_RX_PW_P5_REG' was here
+     NRF_RX_PW_P5_REG    = 0x16,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:55:5: error: redeclaration of enumerator 'NRF_FIFO_STATUS_REG'
+     NRF_FIFO_STATUS_REG = 0x17,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:55:5: note: previous definition of 'NRF_FIFO_STATUS_REG' was here
+     NRF_FIFO_STATUS_REG = 0x17,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:56:5: error: redeclaration of enumerator 'NRF_DYNPD_REG'
+     NRF_DYNPD_REG       = 0x1C,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:56:5: note: previous definition of 'NRF_DYNPD_REG' was here
+     NRF_DYNPD_REG       = 0x1C,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:57:5: error: redeclaration of enumerator 'NRF_FEATURE_REG'
+     NRF_FEATURE_REG     = 0x1D,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:57:5: note: previous definition of 'NRF_FEATURE_REG' was here
+     NRF_FEATURE_REG     = 0x1D,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:58:3: error: conflicting types for 'nrf_register'
+ } nrf_register;
+   ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:58:3: note: previous declaration of 'nrf_register' was here
+ } nrf_register;
+   ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:62:5: error: redeclaration of enumerator 'NRF_R_REGISTER_CMD'
+     NRF_R_REGISTER_CMD          = 0x00, // Read command
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:62:5: note: previous definition of 'NRF_R_REGISTER_CMD' was here
+     NRF_R_REGISTER_CMD          = 0x00, // Read command
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:63:5: error: redeclaration of enumerator 'NRF_W_REGISTER_CMD'
+     NRF_W_REGISTER_CMD          = 0x20, // Write command
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:63:5: note: previous definition of 'NRF_W_REGISTER_CMD' was here
+     NRF_W_REGISTER_CMD          = 0x20, // Write command
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:64:5: error: redeclaration of enumerator 'NRF_R_RX_PAYLOAD_CMD'
+     NRF_R_RX_PAYLOAD_CMD        = 0x61, // Read Rx payload
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:64:5: note: previous definition of 'NRF_R_RX_PAYLOAD_CMD' was here
+     NRF_R_RX_PAYLOAD_CMD        = 0x61, // Read Rx payload
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:65:5: error: redeclaration of enumerator 'NRF_W_TX_PAYLOAD_CMD'
+     NRF_W_TX_PAYLOAD_CMD        = 0xA0, // Write Tx payload
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:65:5: note: previous definition of 'NRF_W_TX_PAYLOAD_CMD' was here
+     NRF_W_TX_PAYLOAD_CMD        = 0xA0, // Write Tx payload
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:66:5: error: redeclaration of enumerator 'NRF_FLUSH_TX_CMD'
+     NRF_FLUSH_TX_CMD            = 0xE1, // Flush Tx FIFO
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:66:5: note: previous definition of 'NRF_FLUSH_TX_CMD' was here
+     NRF_FLUSH_TX_CMD            = 0xE1, // Flush Tx FIFO
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:67:5: error: redeclaration of enumerator 'NRF_FLUSH_RX_CMD'
+     NRF_FLUSH_RX_CMD            = 0xE2, // Flush Rx FIFO
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:67:5: note: previous definition of 'NRF_FLUSH_RX_CMD' was here
+     NRF_FLUSH_RX_CMD            = 0xE2, // Flush Rx FIFO
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:68:5: error: redeclaration of enumerator 'NRF_REUSE_TX_PL_CMD'
+     NRF_REUSE_TX_PL_CMD         = 0xE3, // Reuse the last transmitted payload
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:68:5: note: previous definition of 'NRF_REUSE_TX_PL_CMD' was here
+     NRF_REUSE_TX_PL_CMD         = 0xE3, // Reuse the last transmitted payload
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:69:5: error: redeclaration of enumerator 'NRF_R_RX_PL_WID_CMD'
+     NRF_R_RX_PL_WID_CMD         = 0x60, // Read Rx payload width for the top R_RX_PAYLOAD
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:69:5: note: previous definition of 'NRF_R_RX_PL_WID_CMD' was here
+     NRF_R_RX_PL_WID_CMD         = 0x60, // Read Rx payload width for the top R_RX_PAYLOAD
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:70:5: error: redeclaration of enumerator 'NRF_W_ACK_PAYLOAD_CMD'
+     NRF_W_ACK_PAYLOAD_CMD       = 0xA8, // Write payload to be transmitted together with ACK packet
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:70:5: note: previous definition of 'NRF_W_ACK_PAYLOAD_CMD' was here
+     NRF_W_ACK_PAYLOAD_CMD       = 0xA8, // Write payload to be transmitted together with ACK packet
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:71:5: error: redeclaration of enumerator 'NRF_W_TX_PAYLOAD_NOACK_CMD'
+     NRF_W_TX_PAYLOAD_NOACK_CMD  = 0xB0, // Disable AUTOACK on this specific packet
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:71:5: note: previous definition of 'NRF_W_TX_PAYLOAD_NOACK_CMD' was here
+     NRF_W_TX_PAYLOAD_NOACK_CMD  = 0xB0, // Disable AUTOACK on this specific packet
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:72:5: error: redeclaration of enumerator 'NRF_NOP_CMD'
+     NRF_NOP_CMD                 = 0xFF, // No operation, read STATUS register
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:72:5: note: previous definition of 'NRF_NOP_CMD' was here
+     NRF_NOP_CMD                 = 0xFF, // No operation, read STATUS register
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:73:3: error: conflicting types for 'nrf_cmd'
+ } nrf_cmd;
+   ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:73:3: note: previous declaration of 'nrf_cmd' was here
+ } nrf_cmd;
+   ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:77:5: error: redeclaration of enumerator 'NRF_PIPE0'
+     NRF_PIPE0   = 0x00,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:77:5: note: previous definition of 'NRF_PIPE0' was here
+     NRF_PIPE0   = 0x00,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:78:5: error: redeclaration of enumerator 'NRF_PIPE1'
+     NRF_PIPE1   = 0x01,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:78:5: note: previous definition of 'NRF_PIPE1' was here
+     NRF_PIPE1   = 0x01,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:79:5: error: redeclaration of enumerator 'NRF_PIPE2'
+     NRF_PIPE2   = 0x02,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:79:5: note: previous definition of 'NRF_PIPE2' was here
+     NRF_PIPE2   = 0x02,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:80:5: error: redeclaration of enumerator 'NRF_PIPE3'
+     NRF_PIPE3   = 0x03,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:80:5: note: previous definition of 'NRF_PIPE3' was here
+     NRF_PIPE3   = 0x03,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:81:5: error: redeclaration of enumerator 'NRF_PIPE4'
+     NRF_PIPE4   = 0x04,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:81:5: note: previous definition of 'NRF_PIPE4' was here
+     NRF_PIPE4   = 0x04,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:82:5: error: redeclaration of enumerator 'NRF_PIPE5'
+     NRF_PIPE5   = 0x05,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:82:5: note: previous definition of 'NRF_PIPE5' was here
+     NRF_PIPE5   = 0x05,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:83:3: error: conflicting types for 'nrf_pipe'
+ } nrf_pipe;
+   ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:83:3: note: previous declaration of 'nrf_pipe' was here
+ } nrf_pipe;
+   ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:87:5: error: redeclaration of enumerator 'NRF_PIPE0_ADDR'
+     NRF_PIPE0_ADDR = NRF_RX_ADDR_P0_REG,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:87:5: note: previous definition of 'NRF_PIPE0_ADDR' was here
+     NRF_PIPE0_ADDR = NRF_RX_ADDR_P0_REG,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:88:5: error: redeclaration of enumerator 'NRF_PIPE1_ADDR'
+     NRF_PIPE1_ADDR = NRF_RX_ADDR_P1_REG,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:88:5: note: previous definition of 'NRF_PIPE1_ADDR' was here
+     NRF_PIPE1_ADDR = NRF_RX_ADDR_P1_REG,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:89:5: error: redeclaration of enumerator 'NRF_PIPE2_ADDR'
+     NRF_PIPE2_ADDR = NRF_RX_ADDR_P2_REG,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:89:5: note: previous definition of 'NRF_PIPE2_ADDR' was here
+     NRF_PIPE2_ADDR = NRF_RX_ADDR_P2_REG,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:90:5: error: redeclaration of enumerator 'NRF_PIPE3_ADDR'
+     NRF_PIPE3_ADDR = NRF_RX_ADDR_P3_REG,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:90:5: note: previous definition of 'NRF_PIPE3_ADDR' was here
+     NRF_PIPE3_ADDR = NRF_RX_ADDR_P3_REG,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:91:5: error: redeclaration of enumerator 'NRF_PIPE4_ADDR'
+     NRF_PIPE4_ADDR = NRF_RX_ADDR_P4_REG,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:91:5: note: previous definition of 'NRF_PIPE4_ADDR' was here
+     NRF_PIPE4_ADDR = NRF_RX_ADDR_P4_REG,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:92:5: error: redeclaration of enumerator 'NRF_PIPE5_ADDR'
+     NRF_PIPE5_ADDR = NRF_RX_ADDR_P5_REG,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:92:5: note: previous definition of 'NRF_PIPE5_ADDR' was here
+     NRF_PIPE5_ADDR = NRF_RX_ADDR_P5_REG,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:93:3: error: conflicting types for 'nrf_rx_pipe_address'
+ } nrf_rx_pipe_address;
+   ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:93:3: note: previous declaration of 'nrf_rx_pipe_address' was here
+ } nrf_rx_pipe_address;
+   ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:96:5: error: redeclaration of enumerator 'NRF_PIPE0_PAYLOAD_SIZE'
+     NRF_PIPE0_PAYLOAD_SIZE = NRF_RX_PW_P0_REG,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:96:5: note: previous definition of 'NRF_PIPE0_PAYLOAD_SIZE' was here
+     NRF_PIPE0_PAYLOAD_SIZE = NRF_RX_PW_P0_REG,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:97:5: error: redeclaration of enumerator 'NRF_PIPE1_PAYLOAD_SIZE'
+     NRF_PIPE1_PAYLOAD_SIZE = NRF_RX_PW_P1_REG,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:97:5: note: previous definition of 'NRF_PIPE1_PAYLOAD_SIZE' was here
+     NRF_PIPE1_PAYLOAD_SIZE = NRF_RX_PW_P1_REG,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:98:5: error: redeclaration of enumerator 'NRF_PIPE2_PAYLOAD_SIZE'
+     NRF_PIPE2_PAYLOAD_SIZE = NRF_RX_PW_P2_REG,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:98:5: note: previous definition of 'NRF_PIPE2_PAYLOAD_SIZE' was here
+     NRF_PIPE2_PAYLOAD_SIZE = NRF_RX_PW_P2_REG,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:99:5: error: redeclaration of enumerator 'NRF_PIPE3_PAYLOAD_SIZE'
+     NRF_PIPE3_PAYLOAD_SIZE = NRF_RX_PW_P3_REG,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:99:5: note: previous definition of 'NRF_PIPE3_PAYLOAD_SIZE' was here
+     NRF_PIPE3_PAYLOAD_SIZE = NRF_RX_PW_P3_REG,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:100:5: error: redeclaration of enumerator 'NRF_PIPE4_PAYLOAD_SIZE'
+     NRF_PIPE4_PAYLOAD_SIZE = NRF_RX_PW_P4_REG,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:100:5: note: previous definition of 'NRF_PIPE4_PAYLOAD_SIZE' was here
+     NRF_PIPE4_PAYLOAD_SIZE = NRF_RX_PW_P4_REG,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:101:5: error: redeclaration of enumerator 'NRF_PIPE5_PAYLOAD_SIZE'
+     NRF_PIPE5_PAYLOAD_SIZE = NRF_RX_PW_P5_REG,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:101:5: note: previous definition of 'NRF_PIPE5_PAYLOAD_SIZE' was here
+     NRF_PIPE5_PAYLOAD_SIZE = NRF_RX_PW_P5_REG,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:102:3: error: conflicting types for 'nrf_pipe_payload_size'
+ } nrf_pipe_payload_size;
+   ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:102:3: note: previous declaration of 'nrf_pipe_payload_size' was here
+ } nrf_pipe_payload_size;
+   ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:106:5: error: redeclaration of enumerator 'NRF_MODE_TX'
+     NRF_MODE_TX     = 0,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:106:5: note: previous definition of 'NRF_MODE_TX' was here
+     NRF_MODE_TX     = 0,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:107:5: error: redeclaration of enumerator 'NRF_MODE_RX'
+     NRF_MODE_RX     = 1,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:107:5: note: previous definition of 'NRF_MODE_RX' was here
+     NRF_MODE_RX     = 1,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:108:3: error: conflicting types for 'nrf_mode'
+ } nrf_mode;
+   ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:108:3: note: previous declaration of 'nrf_mode' was here
+ } nrf_mode;
+   ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:111:5: error: redeclaration of enumerator 'NRF_NONE_IRQ'
+     NRF_NONE_IRQ    = 0, // 0x00
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:111:5: note: previous definition of 'NRF_NONE_IRQ' was here
+     NRF_NONE_IRQ    = 0, // 0x00
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:112:5: error: redeclaration of enumerator 'NRF_MAX_RT_IRQ'
+     NRF_MAX_RT_IRQ  = 4, // 0x10
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:112:5: note: previous definition of 'NRF_MAX_RT_IRQ' was here
+     NRF_MAX_RT_IRQ  = 4, // 0x10
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:113:5: error: redeclaration of enumerator 'NRF_TX_DS_IRQ'
+     NRF_TX_DS_IRQ   = 5, // 0x20
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:113:5: note: previous definition of 'NRF_TX_DS_IRQ' was here
+     NRF_TX_DS_IRQ   = 5, // 0x20
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:114:5: error: redeclaration of enumerator 'NRF_RX_DR_IRQ'
+     NRF_RX_DR_IRQ   = 6, // 0x40
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:114:5: note: previous definition of 'NRF_RX_DR_IRQ' was here
+     NRF_RX_DR_IRQ   = 6, // 0x40
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:115:3: error: conflicting types for 'nrf_irq'
+ } nrf_irq;
+   ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:115:3: note: previous declaration of 'nrf_irq' was here
+ } nrf_irq;
+   ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:119:5: error: redeclaration of enumerator 'NRF_CONFIG_PRIM_RX'
+     NRF_CONFIG_PRIM_RX      = 0,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:119:5: note: previous definition of 'NRF_CONFIG_PRIM_RX' was here
+     NRF_CONFIG_PRIM_RX      = 0,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:120:5: error: redeclaration of enumerator 'NRF_CONFIG_PWR_UP'
+     NRF_CONFIG_PWR_UP       = 1,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:120:5: note: previous definition of 'NRF_CONFIG_PWR_UP' was here
+     NRF_CONFIG_PWR_UP       = 1,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:121:5: error: redeclaration of enumerator 'NRF_CONFIG_CRCO'
+     NRF_CONFIG_CRCO         = 2,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:121:5: note: previous definition of 'NRF_CONFIG_CRCO' was here
+     NRF_CONFIG_CRCO         = 2,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:122:5: error: redeclaration of enumerator 'NRF_CONFIG_EN_CRC'
+     NRF_CONFIG_EN_CRC       = 3,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:122:5: note: previous definition of 'NRF_CONFIG_EN_CRC' was here
+     NRF_CONFIG_EN_CRC       = 3,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:123:5: error: redeclaration of enumerator 'NRF_CONFIG_MASK_MAX_RT'
+     NRF_CONFIG_MASK_MAX_RT  = 4,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:123:5: note: previous definition of 'NRF_CONFIG_MASK_MAX_RT' was here
+     NRF_CONFIG_MASK_MAX_RT  = 4,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:124:5: error: redeclaration of enumerator 'NRF_CONFIG_MASK_TX_DS'
+     NRF_CONFIG_MASK_TX_DS   = 5,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:124:5: note: previous definition of 'NRF_CONFIG_MASK_TX_DS' was here
+     NRF_CONFIG_MASK_TX_DS   = 5,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:125:5: error: redeclaration of enumerator 'NRF_CONFIG_MASK_RX_DR'
+     NRF_CONFIG_MASK_RX_DR   = 6,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:125:5: note: previous definition of 'NRF_CONFIG_MASK_RX_DR' was here
+     NRF_CONFIG_MASK_RX_DR   = 6,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:130:5: error: redeclaration of enumerator 'NRF_EN_AA_ENAA_P0'
+     NRF_EN_AA_ENAA_P0   = 0,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:130:5: note: previous definition of 'NRF_EN_AA_ENAA_P0' was here
+     NRF_EN_AA_ENAA_P0   = 0,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:131:5: error: redeclaration of enumerator 'NRF_EN_AA_ENAA_P1'
+     NRF_EN_AA_ENAA_P1   = 1,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:131:5: note: previous definition of 'NRF_EN_AA_ENAA_P1' was here
+     NRF_EN_AA_ENAA_P1   = 1,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:132:5: error: redeclaration of enumerator 'NRF_EN_AA_ENAA_P2'
+     NRF_EN_AA_ENAA_P2   = 2,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:132:5: note: previous definition of 'NRF_EN_AA_ENAA_P2' was here
+     NRF_EN_AA_ENAA_P2   = 2,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:133:5: error: redeclaration of enumerator 'NRF_EN_AA_ENAA_P3'
+     NRF_EN_AA_ENAA_P3   = 3,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:133:5: note: previous definition of 'NRF_EN_AA_ENAA_P3' was here
+     NRF_EN_AA_ENAA_P3   = 3,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:134:5: error: redeclaration of enumerator 'NRF_EN_AA_ENAA_P4'
+     NRF_EN_AA_ENAA_P4   = 4,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:134:5: note: previous definition of 'NRF_EN_AA_ENAA_P4' was here
+     NRF_EN_AA_ENAA_P4   = 4,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:135:5: error: redeclaration of enumerator 'NRF_EN_AA_ENAA_P5'
+     NRF_EN_AA_ENAA_P5   = 5,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:135:5: note: previous definition of 'NRF_EN_AA_ENAA_P5' was here
+     NRF_EN_AA_ENAA_P5   = 5,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:140:5: error: redeclaration of enumerator 'NRF_EN_RXADDR_ERX_P0'
+     NRF_EN_RXADDR_ERX_P0    = 0,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:140:5: note: previous definition of 'NRF_EN_RXADDR_ERX_P0' was here
+     NRF_EN_RXADDR_ERX_P0    = 0,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:141:5: error: redeclaration of enumerator 'NRF_EN_RXADDR_ERX_P1'
+     NRF_EN_RXADDR_ERX_P1    = 1,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:141:5: note: previous definition of 'NRF_EN_RXADDR_ERX_P1' was here
+     NRF_EN_RXADDR_ERX_P1    = 1,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:142:5: error: redeclaration of enumerator 'NRF_EN_RXADDR_ERX_P2'
+     NRF_EN_RXADDR_ERX_P2    = 2,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:142:5: note: previous definition of 'NRF_EN_RXADDR_ERX_P2' was here
+     NRF_EN_RXADDR_ERX_P2    = 2,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:143:5: error: redeclaration of enumerator 'NRF_EN_RXADDR_ERX_P3'
+     NRF_EN_RXADDR_ERX_P3    = 3,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:143:5: note: previous definition of 'NRF_EN_RXADDR_ERX_P3' was here
+     NRF_EN_RXADDR_ERX_P3    = 3,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:144:5: error: redeclaration of enumerator 'NRF_EN_RXADDR_ERX_P4'
+     NRF_EN_RXADDR_ERX_P4    = 4,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:144:5: note: previous definition of 'NRF_EN_RXADDR_ERX_P4' was here
+     NRF_EN_RXADDR_ERX_P4    = 4,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:145:5: error: redeclaration of enumerator 'NRF_EN_RXADDR_ERX_P5'
+     NRF_EN_RXADDR_ERX_P5    = 5,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:145:5: note: previous definition of 'NRF_EN_RXADDR_ERX_P5' was here
+     NRF_EN_RXADDR_ERX_P5    = 5,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:150:5: error: redeclaration of enumerator 'NRF_SETUP_AW_3BYTES'
+     NRF_SETUP_AW_3BYTES = 1,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:150:5: note: previous definition of 'NRF_SETUP_AW_3BYTES' was here
+     NRF_SETUP_AW_3BYTES = 1,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:151:5: error: redeclaration of enumerator 'NRF_SETUP_AW_4BYTES'
+     NRF_SETUP_AW_4BYTES = 2,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:151:5: note: previous definition of 'NRF_SETUP_AW_4BYTES' was here
+     NRF_SETUP_AW_4BYTES = 2,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:152:5: error: redeclaration of enumerator 'NRF_SETUP_AW_5BYTES'
+     NRF_SETUP_AW_5BYTES = 3,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:152:5: note: previous definition of 'NRF_SETUP_AW_5BYTES' was here
+     NRF_SETUP_AW_5BYTES = 3,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:153:3: error: conflicting types for 'nrf_setup_address_width'
+ } nrf_setup_address_width;
+   ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:153:3: note: previous declaration of 'nrf_setup_address_width' was here
+ } nrf_setup_address_width;
+   ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:157:5: error: redeclaration of enumerator 'NRF_PIPE_ADDR_WIDTH_3BYTES'
+     NRF_PIPE_ADDR_WIDTH_3BYTES = 3,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:157:5: note: previous definition of 'NRF_PIPE_ADDR_WIDTH_3BYTES' was here
+     NRF_PIPE_ADDR_WIDTH_3BYTES = 3,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:158:5: error: redeclaration of enumerator 'NRF_PIPE_ADDR_WIDTH_4BYTES'
+     NRF_PIPE_ADDR_WIDTH_4BYTES = 4,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:158:5: note: previous definition of 'NRF_PIPE_ADDR_WIDTH_4BYTES' was here
+     NRF_PIPE_ADDR_WIDTH_4BYTES = 4,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:159:5: error: redeclaration of enumerator 'NRF_PIPE_ADDR_WIDTH_5BYTES'
+     NRF_PIPE_ADDR_WIDTH_5BYTES = 5,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:159:5: note: previous definition of 'NRF_PIPE_ADDR_WIDTH_5BYTES' was here
+     NRF_PIPE_ADDR_WIDTH_5BYTES = 5,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:160:3: error: conflicting types for 'nrf_pipe_address_width'
+ } nrf_pipe_address_width;
+   ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:160:3: note: previous declaration of 'nrf_pipe_address_width' was here
+ } nrf_pipe_address_width;
+   ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:164:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC'
+     NRF_SETUP_RETR_ARC  = 0,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:164:5: note: previous definition of 'NRF_SETUP_RETR_ARC' was here
+     NRF_SETUP_RETR_ARC  = 0,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:165:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD'
+     NRF_SETUP_RETR_ARD  = 4,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:165:5: note: previous definition of 'NRF_SETUP_RETR_ARD' was here
+     NRF_SETUP_RETR_ARD  = 4,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:169:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC_0'
+     NRF_SETUP_RETR_ARC_0    = 0x00, // 0 retry count, retry disabled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:169:5: note: previous definition of 'NRF_SETUP_RETR_ARC_0' was here
+     NRF_SETUP_RETR_ARC_0    = 0x00, // 0 retry count, retry disabled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:170:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC_1'
+     NRF_SETUP_RETR_ARC_1    = 0x01, // 1 retry count, retry disabled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:170:5: note: previous definition of 'NRF_SETUP_RETR_ARC_1' was here
+     NRF_SETUP_RETR_ARC_1    = 0x01, // 1 retry count, retry disabled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:171:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC_2'
+     NRF_SETUP_RETR_ARC_2    = 0x02, // 2 retry count, retry disabled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:171:5: note: previous definition of 'NRF_SETUP_RETR_ARC_2' was here
+     NRF_SETUP_RETR_ARC_2    = 0x02, // 2 retry count, retry disabled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:172:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC_3'
+     NRF_SETUP_RETR_ARC_3    = 0x03, // 3 retry count, retry disabled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:172:5: note: previous definition of 'NRF_SETUP_RETR_ARC_3' was here
+     NRF_SETUP_RETR_ARC_3    = 0x03, // 3 retry count, retry disabled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:173:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC_4'
+     NRF_SETUP_RETR_ARC_4    = 0x04, // 4 retry count, retry disabled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:173:5: note: previous definition of 'NRF_SETUP_RETR_ARC_4' was here
+     NRF_SETUP_RETR_ARC_4    = 0x04, // 4 retry count, retry disabled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:174:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC_5'
+     NRF_SETUP_RETR_ARC_5    = 0x05, // 5 retry count, retry disabled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:174:5: note: previous definition of 'NRF_SETUP_RETR_ARC_5' was here
+     NRF_SETUP_RETR_ARC_5    = 0x05, // 5 retry count, retry disabled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:175:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC_6'
+     NRF_SETUP_RETR_ARC_6    = 0x06, // 6 retry count, retry disabled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:175:5: note: previous definition of 'NRF_SETUP_RETR_ARC_6' was here
+     NRF_SETUP_RETR_ARC_6    = 0x06, // 6 retry count, retry disabled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:176:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC_7'
+     NRF_SETUP_RETR_ARC_7    = 0x07, // 7 retry count, retry disabled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:176:5: note: previous definition of 'NRF_SETUP_RETR_ARC_7' was here
+     NRF_SETUP_RETR_ARC_7    = 0x07, // 7 retry count, retry disabled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:177:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC_8'
+     NRF_SETUP_RETR_ARC_8    = 0x08, // 8 retry count, retry disabled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:177:5: note: previous definition of 'NRF_SETUP_RETR_ARC_8' was here
+     NRF_SETUP_RETR_ARC_8    = 0x08, // 8 retry count, retry disabled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:178:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC_9'
+     NRF_SETUP_RETR_ARC_9    = 0x09, // 9 retry count, retry disabled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:178:5: note: previous definition of 'NRF_SETUP_RETR_ARC_9' was here
+     NRF_SETUP_RETR_ARC_9    = 0x09, // 9 retry count, retry disabled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:179:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC_10'
+     NRF_SETUP_RETR_ARC_10   = 0x0A, // 10 retry count, retry disabled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:179:5: note: previous definition of 'NRF_SETUP_RETR_ARC_10' was here
+     NRF_SETUP_RETR_ARC_10   = 0x0A, // 10 retry count, retry disabled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:180:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC_11'
+     NRF_SETUP_RETR_ARC_11   = 0x0B, // 11 retry count, retry disabled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:180:5: note: previous definition of 'NRF_SETUP_RETR_ARC_11' was here
+     NRF_SETUP_RETR_ARC_11   = 0x0B, // 11 retry count, retry disabled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:181:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC_12'
+     NRF_SETUP_RETR_ARC_12   = 0x0C, // 12 retry count, retry disabled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:181:5: note: previous definition of 'NRF_SETUP_RETR_ARC_12' was here
+     NRF_SETUP_RETR_ARC_12   = 0x0C, // 12 retry count, retry disabled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:182:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC_13'
+     NRF_SETUP_RETR_ARC_13   = 0x0D, // 13 retry count, retry disabled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:182:5: note: previous definition of 'NRF_SETUP_RETR_ARC_13' was here
+     NRF_SETUP_RETR_ARC_13   = 0x0D, // 13 retry count, retry disabled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:183:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC_14'
+     NRF_SETUP_RETR_ARC_14   = 0x0E, // 14 retry count, retry disabled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:183:5: note: previous definition of 'NRF_SETUP_RETR_ARC_14' was here
+     NRF_SETUP_RETR_ARC_14   = 0x0E, // 14 retry count, retry disabled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:184:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARC_15'
+     NRF_SETUP_RETR_ARC_15   = 0x0F, // 15 retry count, retry disabled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:184:5: note: previous definition of 'NRF_SETUP_RETR_ARC_15' was here
+     NRF_SETUP_RETR_ARC_15   = 0x0F, // 15 retry count, retry disabled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:188:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD_250_US'
+     NRF_SETUP_RETR_ARD_250_US   = 0x00, // 250 us retry delay
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:188:5: note: previous definition of 'NRF_SETUP_RETR_ARD_250_US' was here
+     NRF_SETUP_RETR_ARD_250_US   = 0x00, // 250 us retry delay
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:189:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD_500_US'
+     NRF_SETUP_RETR_ARD_500_US   = 0x10, // 500 us retry delay
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:189:5: note: previous definition of 'NRF_SETUP_RETR_ARD_500_US' was here
+     NRF_SETUP_RETR_ARD_500_US   = 0x10, // 500 us retry delay
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:190:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD_750_US'
+     NRF_SETUP_RETR_ARD_750_US   = 0x20, // 750 us retry delay
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:190:5: note: previous definition of 'NRF_SETUP_RETR_ARD_750_US' was here
+     NRF_SETUP_RETR_ARD_750_US   = 0x20, // 750 us retry delay
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:191:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD_1000_US'
+     NRF_SETUP_RETR_ARD_1000_US  = 0x30, // 1000 us retry delay
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:191:5: note: previous definition of 'NRF_SETUP_RETR_ARD_1000_US' was here
+     NRF_SETUP_RETR_ARD_1000_US  = 0x30, // 1000 us retry delay
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:192:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD_1250_US'
+     NRF_SETUP_RETR_ARD_1250_US  = 0x40, // 1250 us retry delay
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:192:5: note: previous definition of 'NRF_SETUP_RETR_ARD_1250_US' was here
+     NRF_SETUP_RETR_ARD_1250_US  = 0x40, // 1250 us retry delay
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:193:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD_1500_US'
+     NRF_SETUP_RETR_ARD_1500_US  = 0x50, // 1500 us retry delay
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:193:5: note: previous definition of 'NRF_SETUP_RETR_ARD_1500_US' was here
+     NRF_SETUP_RETR_ARD_1500_US  = 0x50, // 1500 us retry delay
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:194:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD_1750_US'
+     NRF_SETUP_RETR_ARD_1750_US  = 0x60, // 1750 us retry delay
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:194:5: note: previous definition of 'NRF_SETUP_RETR_ARD_1750_US' was here
+     NRF_SETUP_RETR_ARD_1750_US  = 0x60, // 1750 us retry delay
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:195:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD_2000_US'
+     NRF_SETUP_RETR_ARD_2000_US  = 0x70, // 2000 us retry delay
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:195:5: note: previous definition of 'NRF_SETUP_RETR_ARD_2000_US' was here
+     NRF_SETUP_RETR_ARD_2000_US  = 0x70, // 2000 us retry delay
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:196:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD_2250_US'
+     NRF_SETUP_RETR_ARD_2250_US  = 0x80, // 2250 us retry delay
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:196:5: note: previous definition of 'NRF_SETUP_RETR_ARD_2250_US' was here
+     NRF_SETUP_RETR_ARD_2250_US  = 0x80, // 2250 us retry delay
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:197:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD_2500_US'
+     NRF_SETUP_RETR_ARD_2500_US  = 0x90, // 2500 us retry delay
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:197:5: note: previous definition of 'NRF_SETUP_RETR_ARD_2500_US' was here
+     NRF_SETUP_RETR_ARD_2500_US  = 0x90, // 2500 us retry delay
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:198:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD_2750_US'
+     NRF_SETUP_RETR_ARD_2750_US  = 0xA0, // 2750 us retry delay
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:198:5: note: previous definition of 'NRF_SETUP_RETR_ARD_2750_US' was here
+     NRF_SETUP_RETR_ARD_2750_US  = 0xA0, // 2750 us retry delay
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:199:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD_3000_US'
+     NRF_SETUP_RETR_ARD_3000_US  = 0xB0, // 3000 us retry delay
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:199:5: note: previous definition of 'NRF_SETUP_RETR_ARD_3000_US' was here
+     NRF_SETUP_RETR_ARD_3000_US  = 0xB0, // 3000 us retry delay
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:200:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD_3250_US'
+     NRF_SETUP_RETR_ARD_3250_US  = 0xC0, // 3250 us retry delay
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:200:5: note: previous definition of 'NRF_SETUP_RETR_ARD_3250_US' was here
+     NRF_SETUP_RETR_ARD_3250_US  = 0xC0, // 3250 us retry delay
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:201:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD_3500_US'
+     NRF_SETUP_RETR_ARD_3500_US  = 0xD0, // 3500 us retry delay
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:201:5: note: previous definition of 'NRF_SETUP_RETR_ARD_3500_US' was here
+     NRF_SETUP_RETR_ARD_3500_US  = 0xD0, // 3500 us retry delay
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:202:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD_3750_US'
+     NRF_SETUP_RETR_ARD_3750_US  = 0xE0, // 3750 us retry delay
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:202:5: note: previous definition of 'NRF_SETUP_RETR_ARD_3750_US' was here
+     NRF_SETUP_RETR_ARD_3750_US  = 0xE0, // 3750 us retry delay
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:203:5: error: redeclaration of enumerator 'NRF_SETUP_RETR_ARD_4000_US'
+     NRF_SETUP_RETR_ARD_4000_US  = 0xF0, // 4400 us retry delay
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:203:5: note: previous definition of 'NRF_SETUP_RETR_ARD_4000_US' was here
+     NRF_SETUP_RETR_ARD_4000_US  = 0xF0, // 4400 us retry delay
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:210:5: error: redeclaration of enumerator 'NRF_RF_SETUP_RF_PWR'
+     NRF_RF_SETUP_RF_PWR     = 1,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:210:5: note: previous definition of 'NRF_RF_SETUP_RF_PWR' was here
+     NRF_RF_SETUP_RF_PWR     = 1,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:211:5: error: redeclaration of enumerator 'NRF_RF_SETUP_RF_DR'
+     NRF_RF_SETUP_RF_DR      = 3,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:211:5: note: previous definition of 'NRF_RF_SETUP_RF_DR' was here
+     NRF_RF_SETUP_RF_DR      = 3,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:212:5: error: redeclaration of enumerator 'NRF_RF_SETUP_RF_DR_HIGH'
+     NRF_RF_SETUP_RF_DR_HIGH = 3,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:212:5: note: previous definition of 'NRF_RF_SETUP_RF_DR_HIGH' was here
+     NRF_RF_SETUP_RF_DR_HIGH = 3,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:213:5: error: redeclaration of enumerator 'NRF_RF_SETUP_PLL_LOCK'
+     NRF_RF_SETUP_PLL_LOCK   = 4,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:213:5: note: previous definition of 'NRF_RF_SETUP_PLL_LOCK' was here
+     NRF_RF_SETUP_PLL_LOCK   = 4,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:214:5: error: redeclaration of enumerator 'NRF_RF_SETUP_RF_DR_LOW'
+     NRF_RF_SETUP_RF_DR_LOW  = 5,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:214:5: note: previous definition of 'NRF_RF_SETUP_RF_DR_LOW' was here
+     NRF_RF_SETUP_RF_DR_LOW  = 5,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:215:5: error: redeclaration of enumerator 'NRF_RF_SETUP_CONT_WAVE'
+     NRF_RF_SETUP_CONT_WAVE  = 7,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:215:5: note: previous definition of 'NRF_RF_SETUP_CONT_WAVE' was here
+     NRF_RF_SETUP_CONT_WAVE  = 7,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:219:5: error: redeclaration of enumerator 'NRF_RF_SETUP_RF_DR_1000'
+     NRF_RF_SETUP_RF_DR_1000 = 0,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:219:5: note: previous definition of 'NRF_RF_SETUP_RF_DR_1000' was here
+     NRF_RF_SETUP_RF_DR_1000 = 0,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:220:5: error: redeclaration of enumerator 'NRF_RF_SETUP_RF_DR_2000'
+     NRF_RF_SETUP_RF_DR_2000 = 8,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:220:5: note: previous definition of 'NRF_RF_SETUP_RF_DR_2000' was here
+     NRF_RF_SETUP_RF_DR_2000 = 8,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:221:5: error: redeclaration of enumerator 'NRF_RF_SETUP_RF_DR_250'
+     NRF_RF_SETUP_RF_DR_250  = 0x20,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:221:5: note: previous definition of 'NRF_RF_SETUP_RF_DR_250' was here
+     NRF_RF_SETUP_RF_DR_250  = 0x20,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:225:5: error: redeclaration of enumerator 'NRF_RF_SETUP_RF_PWR_18'
+     NRF_RF_SETUP_RF_PWR_18  = 0,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:225:5: note: previous definition of 'NRF_RF_SETUP_RF_PWR_18' was here
+     NRF_RF_SETUP_RF_PWR_18  = 0,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:226:5: error: redeclaration of enumerator 'NRF_RF_SETUP_RF_PWR_12'
+     NRF_RF_SETUP_RF_PWR_12  = 2,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:226:5: note: previous definition of 'NRF_RF_SETUP_RF_PWR_12' was here
+     NRF_RF_SETUP_RF_PWR_12  = 2,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:227:5: error: redeclaration of enumerator 'NRF_RF_SETUP_RF_PWR_6'
+     NRF_RF_SETUP_RF_PWR_6   = 4,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:227:5: note: previous definition of 'NRF_RF_SETUP_RF_PWR_6' was here
+     NRF_RF_SETUP_RF_PWR_6   = 4,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:228:5: error: redeclaration of enumerator 'NRF_RF_SETUP_RF_PWR_0'
+     NRF_RF_SETUP_RF_PWR_0   = 6,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:228:5: note: previous definition of 'NRF_RF_SETUP_RF_PWR_0' was here
+     NRF_RF_SETUP_RF_PWR_0   = 6,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:233:5: error: redeclaration of enumerator 'NRF_STATUS_TX_FULL'
+     NRF_STATUS_TX_FULL  = 0,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:233:5: note: previous definition of 'NRF_STATUS_TX_FULL' was here
+     NRF_STATUS_TX_FULL  = 0,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:234:5: error: redeclaration of enumerator 'NRF_STATUS_RX_P_NO'
+     NRF_STATUS_RX_P_NO  = 1,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:234:5: note: previous definition of 'NRF_STATUS_RX_P_NO' was here
+     NRF_STATUS_RX_P_NO  = 1,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:235:5: error: redeclaration of enumerator 'NRF_STATUS_MAX_RT'
+     NRF_STATUS_MAX_RT   = 4,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:235:5: note: previous definition of 'NRF_STATUS_MAX_RT' was here
+     NRF_STATUS_MAX_RT   = 4,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:236:5: error: redeclaration of enumerator 'NRF_STATUS_TX_DS'
+     NRF_STATUS_TX_DS    = 5,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:236:5: note: previous definition of 'NRF_STATUS_TX_DS' was here
+     NRF_STATUS_TX_DS    = 5,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:237:5: error: redeclaration of enumerator 'NRF_STATUS_RX_DR'
+     NRF_STATUS_RX_DR    = 6,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:237:5: note: previous definition of 'NRF_STATUS_RX_DR' was here
+     NRF_STATUS_RX_DR    = 6,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:241:5: error: redeclaration of enumerator 'NRF_STATUS_MAX_RT_MASK'
+     NRF_STATUS_MAX_RT_MASK  = 0x10,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:241:5: note: previous definition of 'NRF_STATUS_MAX_RT_MASK' was here
+     NRF_STATUS_MAX_RT_MASK  = 0x10,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:242:5: error: redeclaration of enumerator 'NRF_STATUS_TX_DS_MASK'
+     NRF_STATUS_TX_DS_MASK   = 0x20,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:242:5: note: previous definition of 'NRF_STATUS_TX_DS_MASK' was here
+     NRF_STATUS_TX_DS_MASK   = 0x20,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:243:5: error: redeclaration of enumerator 'NRF_STATUS_RX_DR_MASK'
+     NRF_STATUS_RX_DR_MASK   = 0x40,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:243:5: note: previous definition of 'NRF_STATUS_RX_DR_MASK' was here
+     NRF_STATUS_RX_DR_MASK   = 0x40,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:247:5: error: redeclaration of enumerator 'NRF_STATUS_TXFIFO_NOTFULL'
+     NRF_STATUS_TXFIFO_NOTFULL   = 0,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:247:5: note: previous definition of 'NRF_STATUS_TXFIFO_NOTFULL' was here
+     NRF_STATUS_TXFIFO_NOTFULL   = 0,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:248:5: error: redeclaration of enumerator 'NRF_STATUS_TXFIFO_FULL'
+     NRF_STATUS_TXFIFO_FULL      = 1,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:248:5: note: previous definition of 'NRF_STATUS_TXFIFO_FULL' was here
+     NRF_STATUS_TXFIFO_FULL      = 1,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:252:5: error: redeclaration of enumerator 'NRF_STATUS_RX_P_NO_0'
+     NRF_STATUS_RX_P_NO_0 = 0,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:252:5: note: previous definition of 'NRF_STATUS_RX_P_NO_0' was here
+     NRF_STATUS_RX_P_NO_0 = 0,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:253:5: error: redeclaration of enumerator 'NRF_STATUS_RX_P_NO_1'
+     NRF_STATUS_RX_P_NO_1 = 1,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:253:5: note: previous definition of 'NRF_STATUS_RX_P_NO_1' was here
+     NRF_STATUS_RX_P_NO_1 = 1,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:254:5: error: redeclaration of enumerator 'NRF_STATUS_RX_P_NO_2'
+     NRF_STATUS_RX_P_NO_2 = 2,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:254:5: note: previous definition of 'NRF_STATUS_RX_P_NO_2' was here
+     NRF_STATUS_RX_P_NO_2 = 2,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:255:5: error: redeclaration of enumerator 'NRF_STATUS_RX_P_NO_3'
+     NRF_STATUS_RX_P_NO_3 = 3,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:255:5: note: previous definition of 'NRF_STATUS_RX_P_NO_3' was here
+     NRF_STATUS_RX_P_NO_3 = 3,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:256:5: error: redeclaration of enumerator 'NRF_STATUS_RX_P_NO_4'
+     NRF_STATUS_RX_P_NO_4 = 4,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:256:5: note: previous definition of 'NRF_STATUS_RX_P_NO_4' was here
+     NRF_STATUS_RX_P_NO_4 = 4,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:257:5: error: redeclaration of enumerator 'NRF_STATUS_RX_P_NO_5'
+     NRF_STATUS_RX_P_NO_5 = 5,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:257:5: note: previous definition of 'NRF_STATUS_RX_P_NO_5' was here
+     NRF_STATUS_RX_P_NO_5 = 5,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:258:5: error: redeclaration of enumerator 'NRF_STATUS_RX_P_NO_UNUSED'
+     NRF_STATUS_RX_P_NO_UNUSED   = 0x0C,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:258:5: note: previous definition of 'NRF_STATUS_RX_P_NO_UNUSED' was here
+     NRF_STATUS_RX_P_NO_UNUSED   = 0x0C,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:259:5: error: redeclaration of enumerator 'NRF_STATUS_RX_P_NO_EMPTY'
+     NRF_STATUS_RX_P_NO_EMPTY    = 0x0E,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:259:5: note: previous definition of 'NRF_STATUS_RX_P_NO_EMPTY' was here
+     NRF_STATUS_RX_P_NO_EMPTY    = 0x0E,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:264:5: error: redeclaration of enumerator 'NRF_OBSERVE_TX_ARC_CNT'
+     NRF_OBSERVE_TX_ARC_CNT  = 0,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:264:5: note: previous definition of 'NRF_OBSERVE_TX_ARC_CNT' was here
+     NRF_OBSERVE_TX_ARC_CNT  = 0,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:265:5: error: redeclaration of enumerator 'NRF_OBSERVE_TX_PLOS_CNT'
+     NRF_OBSERVE_TX_PLOS_CNT = 4,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:265:5: note: previous definition of 'NRF_OBSERVE_TX_PLOS_CNT' was here
+     NRF_OBSERVE_TX_PLOS_CNT = 4,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:269:5: error: redeclaration of enumerator 'NRF_OBSERVE_TX_ARC_CNT_MASK'
+     NRF_OBSERVE_TX_ARC_CNT_MASK     = 0x0F,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:269:5: note: previous definition of 'NRF_OBSERVE_TX_ARC_CNT_MASK' was here
+     NRF_OBSERVE_TX_ARC_CNT_MASK     = 0x0F,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:270:5: error: redeclaration of enumerator 'NRF_OBSERVE_TX_PLOS_CNT_MASK'
+     NRF_OBSERVE_TX_PLOS_CNT_MASK    = 0xF0,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:270:5: note: previous definition of 'NRF_OBSERVE_TX_PLOS_CNT_MASK' was here
+     NRF_OBSERVE_TX_PLOS_CNT_MASK    = 0xF0,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:275:5: error: redeclaration of enumerator 'NRF_RPD_RPD'
+     NRF_RPD_RPD = 0,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:275:5: note: previous definition of 'NRF_RPD_RPD' was here
+     NRF_RPD_RPD = 0,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:280:5: error: redeclaration of enumerator 'NRF_RX_PW_MASK'
+     NRF_RX_PW_MASK  = 0x3F,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:280:5: note: previous definition of 'NRF_RX_PW_MASK' was here
+     NRF_RX_PW_MASK  = 0x3F,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:285:5: error: redeclaration of enumerator 'NRF_FIFO_STATUS_RX_EMPTY'
+     NRF_FIFO_STATUS_RX_EMPTY    = 0,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:285:5: note: previous definition of 'NRF_FIFO_STATUS_RX_EMPTY' was here
+     NRF_FIFO_STATUS_RX_EMPTY    = 0,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:286:5: error: redeclaration of enumerator 'NRF_FIFO_STATUS_RX_FULL'
+     NRF_FIFO_STATUS_RX_FULL     = 1,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:286:5: note: previous definition of 'NRF_FIFO_STATUS_RX_FULL' was here
+     NRF_FIFO_STATUS_RX_FULL     = 1,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:287:5: error: redeclaration of enumerator 'NRF_FIFO_STATUS_TX_EMPTY'
+     NRF_FIFO_STATUS_TX_EMPTY    = 4,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:287:5: note: previous definition of 'NRF_FIFO_STATUS_TX_EMPTY' was here
+     NRF_FIFO_STATUS_TX_EMPTY    = 4,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:288:5: error: redeclaration of enumerator 'NRF_FIFO_STATUS_TX_FULL'
+     NRF_FIFO_STATUS_TX_FULL     = 5,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:288:5: note: previous definition of 'NRF_FIFO_STATUS_TX_FULL' was here
+     NRF_FIFO_STATUS_TX_FULL     = 5,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:289:5: error: redeclaration of enumerator 'NRF_FIFO_STATUS_TX_REUSE'
+     NRF_FIFO_STATUS_TX_REUSE    = 6,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:289:5: note: previous definition of 'NRF_FIFO_STATUS_TX_REUSE' was here
+     NRF_FIFO_STATUS_TX_REUSE    = 6,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:294:5: error: redeclaration of enumerator 'NRF_DYNPD_DPL_P0'
+     NRF_DYNPD_DPL_P0    = 0,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:294:5: note: previous definition of 'NRF_DYNPD_DPL_P0' was here
+     NRF_DYNPD_DPL_P0    = 0,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:295:5: error: redeclaration of enumerator 'NRF_DYNPD_DPL_P1'
+     NRF_DYNPD_DPL_P1    = 1,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:295:5: note: previous definition of 'NRF_DYNPD_DPL_P1' was here
+     NRF_DYNPD_DPL_P1    = 1,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:296:5: error: redeclaration of enumerator 'NRF_DYNPD_DPL_P2'
+     NRF_DYNPD_DPL_P2    = 2,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:296:5: note: previous definition of 'NRF_DYNPD_DPL_P2' was here
+     NRF_DYNPD_DPL_P2    = 2,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:297:5: error: redeclaration of enumerator 'NRF_DYNPD_DPL_P3'
+     NRF_DYNPD_DPL_P3    = 3,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:297:5: note: previous definition of 'NRF_DYNPD_DPL_P3' was here
+     NRF_DYNPD_DPL_P3    = 3,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:298:5: error: redeclaration of enumerator 'NRF_DYNPD_DPL_P4'
+     NRF_DYNPD_DPL_P4    = 4,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:298:5: note: previous definition of 'NRF_DYNPD_DPL_P4' was here
+     NRF_DYNPD_DPL_P4    = 4,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:299:5: error: redeclaration of enumerator 'NRF_DYNPD_DPL_P5'
+     NRF_DYNPD_DPL_P5    = 5,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:299:5: note: previous definition of 'NRF_DYNPD_DPL_P5' was here
+     NRF_DYNPD_DPL_P5    = 5,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:304:5: error: redeclaration of enumerator 'NRF_FEATURE_EN_DYN_ACK'
+     NRF_FEATURE_EN_DYN_ACK  = 0,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:304:5: note: previous definition of 'NRF_FEATURE_EN_DYN_ACK' was here
+     NRF_FEATURE_EN_DYN_ACK  = 0,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:305:5: error: redeclaration of enumerator 'NRF_FEATURE_EN_ACK_PAY'
+     NRF_FEATURE_EN_ACK_PAY  = 1,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:305:5: note: previous definition of 'NRF_FEATURE_EN_ACK_PAY' was here
+     NRF_FEATURE_EN_ACK_PAY  = 1,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:306:5: error: redeclaration of enumerator 'NRF_FEATURE_EN_DPL'
+     NRF_FEATURE_EN_DPL      = 2,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:306:5: note: previous definition of 'NRF_FEATURE_EN_DPL' was here
+     NRF_FEATURE_EN_DPL      = 2,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:311:5: error: redeclaration of enumerator 'RET_SUCCESS'
+     RET_SUCCESS         = 0x00, // Successful
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:311:5: note: previous definition of 'RET_SUCCESS' was here
+     RET_SUCCESS         = 0x00, // Successful
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:312:5: error: redeclaration of enumerator 'RET_BAD_PARAM'
+     RET_BAD_PARAM       = 0x01, // One or more invalid parameters
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:312:5: note: previous definition of 'RET_BAD_PARAM' was here
+     RET_BAD_PARAM       = 0x01, // One or more invalid parameters
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:313:5: error: redeclaration of enumerator 'RET_INVALID_OBJECT'
+     RET_INVALID_OBJECT  = 0x02, // Invalid object specified
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:313:5: note: previous definition of 'RET_INVALID_OBJECT' was here
+     RET_INVALID_OBJECT  = 0x02, // Invalid object specified
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:314:5: error: redeclaration of enumerator 'RET_MEMORY'
+     RET_MEMORY          = 0x03, // Memory related failure
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:314:5: note: previous definition of 'RET_MEMORY' was here
+     RET_MEMORY          = 0x03, // Memory related failure
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:315:5: error: redeclaration of enumerator 'RET_LOCKED'
+     RET_LOCKED          = 0x04, // Resource lock failure
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:315:5: note: previous definition of 'RET_LOCKED' was here
+     RET_LOCKED          = 0x04, // Resource lock failure
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:316:5: error: redeclaration of enumerator 'RET_EMPTY'
+     RET_EMPTY           = 0x05, // No more objects available
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:316:5: note: previous definition of 'RET_EMPTY' was here
+     RET_EMPTY           = 0x05, // No more objects available
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:317:5: error: redeclaration of enumerator 'RET_BAD_DATA'
+     RET_BAD_DATA        = 0x06, // Bad data received (CRC or other error check)
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:317:5: note: previous definition of 'RET_BAD_DATA' was here
+     RET_BAD_DATA        = 0x06, // Bad data received (CRC or other error check)
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:318:5: error: redeclaration of enumerator 'RET_STARTED'
+     RET_STARTED         = 0x07, // Operation started, but not necessarily completed yet
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:318:5: note: previous definition of 'RET_STARTED' was here
+     RET_STARTED         = 0x07, // Operation started, but not necessarily completed yet
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:319:5: error: redeclaration of enumerator 'RET_FINISHED'
+     RET_FINISHED        = 0x08, // Operation completed
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:319:5: note: previous definition of 'RET_FINISHED' was here
+     RET_FINISHED        = 0x08, // Operation completed
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:320:5: error: redeclaration of enumerator 'RET_CANCELED'
+     RET_CANCELED        = 0x09, // Operation canceled
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:320:5: note: previous definition of 'RET_CANCELED' was here
+     RET_CANCELED        = 0x09, // Operation canceled
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:321:5: error: redeclaration of enumerator 'RET_TIMEOUT'
+     RET_TIMEOUT         = 0x0A, // Operation timed out
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:321:5: note: previous definition of 'RET_TIMEOUT' was here
+     RET_TIMEOUT         = 0x0A, // Operation timed out
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:322:5: error: redeclaration of enumerator 'RET_INVALID_STATE'
+     RET_INVALID_STATE   = 0x0B, // Operation not setup or is in an improper state
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:322:5: note: previous definition of 'RET_INVALID_STATE' was here
+     RET_INVALID_STATE   = 0x0B, // Operation not setup or is in an improper state
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:323:5: error: redeclaration of enumerator 'RET_NULL_PTR'
+     RET_NULL_PTR        = 0x0C, // NULL pointer was used as an parameter.
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:323:5: note: previous definition of 'RET_NULL_PTR' was here
+     RET_NULL_PTR        = 0x0C, // NULL pointer was used as an parameter.
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:328:5: error: redeclaration of enumerator 'NRF_STATUS_PIPES_SHIFT'
+     NRF_STATUS_PIPES_SHIFT  = 1,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:328:5: note: previous definition of 'NRF_STATUS_PIPES_SHIFT' was here
+     NRF_STATUS_PIPES_SHIFT  = 1,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:329:5: error: redeclaration of enumerator 'NRF_MAX_ADDR_SIZE'
+     NRF_MAX_ADDR_SIZE       = 5,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:329:5: note: previous definition of 'NRF_MAX_ADDR_SIZE' was here
+     NRF_MAX_ADDR_SIZE       = 5,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:330:5: error: redeclaration of enumerator 'NRF_CE_PULSE_WIDTH'
+     NRF_CE_PULSE_WIDTH      = 15,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:330:5: note: previous definition of 'NRF_CE_PULSE_WIDTH' was here
+     NRF_CE_PULSE_WIDTH      = 15,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:331:5: error: redeclaration of enumerator 'NRF_MAX_PAYLOAD_SIZE'
+     NRF_MAX_PAYLOAD_SIZE    = 32,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:331:5: note: previous definition of 'NRF_MAX_PAYLOAD_SIZE' was here
+     NRF_MAX_PAYLOAD_SIZE    = 32,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:332:5: error: redeclaration of enumerator 'NRF_POWER_UP_DELAY'
+     NRF_POWER_UP_DELAY      = 100,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:332:5: note: previous definition of 'NRF_POWER_UP_DELAY' was here
+     NRF_POWER_UP_DELAY      = 100,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:333:5: error: redeclaration of enumerator 'NRF_MAX_RF_CHANNEL'
+     NRF_MAX_RF_CHANNEL      = 125,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:333:5: note: previous definition of 'NRF_MAX_RF_CHANNEL' was here
+     NRF_MAX_RF_CHANNEL      = 125,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:334:5: error: redeclaration of enumerator 'NRF_ALL_IRQ_MASK'
+     NRF_ALL_IRQ_MASK        = 0x70,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:334:5: note: previous definition of 'NRF_ALL_IRQ_MASK' was here
+     NRF_ALL_IRQ_MASK        = 0x70,
+     ^
+In file included from ..\RNET\RNetConf.h:18:0,
+                 from ..\RNET\Radio.h:16,
+                 from ..\RNET\Radio.c:14:
+Generated_Source\PSoC4/nRF24_REGS.h:335:5: error: redeclaration of enumerator 'NRF_STATUS_PIPES_MASK'
+     NRF_STATUS_PIPES_MASK   = 0x0E,
+     ^
+In file included from Generated_Source\PSoC4/project.h:31:0,
+                 from ./FreeRTOSConfig.h:73,
+                 from ..\FreeRTOS\include/FreeRTOS.h:57,
+                 from ..\RNET\Radio.c:11:
+Generated_Source\PSoC4/RF1_REGS.h:335:5: note: previous definition of 'NRF_STATUS_PIPES_MASK' was here
+     NRF_STATUS_PIPES_MASK   = 0x0E,
+     ^
+..\RNET\Radio.c: In function 'CheckRx':
+..\RNET\Radio.c:229:14: warning: implicit declaration of function 'RF1_GetStatusClrIRQ' [-Wimplicit-function-declaration]
+     status = RF1_GetStatusClrIRQ();
+              ^
+..\RNET\Radio.c:230:23: error: 'RF1_STATUS_RX_DR' undeclared (first use in this function)
+     hasRx = (status & RF1_STATUS_RX_DR) != 0;
+                       ^
+..\RNET\Radio.c:230:23: note: each undeclared identifier is reported only once for each function it appears in
+..\RNET\Radio.c:234:15: warning: implicit declaration of function 'RF1_GetFifoStatus' [-Wimplicit-function-declaration]
+         (void)RF1_GetFifoStatus(&status);
+               ^
+..\RNET\Radio.c:235:24: error: 'RF1_FIFO_STATUS_RX_EMPTY' undeclared (first use in this function)
+         if (!(status & RF1_FIFO_STATUS_RX_EMPTY) ||
+                        ^
+..\RNET\Radio.c:236:23: error: 'RF1_FIFO_STATUS_RX_FULL' undeclared (first use in this function)
+             (status & RF1_FIFO_STATUS_RX_FULL)) { /* Rx not empty? */
+                       ^
+..\RNET\Radio.c:245:15: warning: implicit declaration of function 'RF1_ReadNofRxPayload' [-Wimplicit-function-declaration]
+         (void)RF1_ReadNofRxPayload(&payloadSize);
+               ^
+The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
+..\RNET\Radio.c:247:13: warning: implicit declaration of function 'RF1_Write' [-Wimplicit-function-declaration]
+             RF1_Write(RF1_FLUSH_RX);                /* flush old data */
+             ^
+..\RNET\Radio.c:247:23: error: 'RF1_FLUSH_RX' undeclared (first use in this function)
+             RF1_Write(RF1_FLUSH_RX);                /* flush old data */
+                       ^
+..\RNET\Radio.c:250:13: warning: implicit declaration of function 'RF1_RxPayload' [-Wimplicit-function-declaration]
+             RF1_RxPayload(packet.rxtx, payloadSize); /* get payload: note that
+             ^
+..\RNET\Radio.c: In function 'RADIO_HandleStateMachine':
+..\RNET\Radio.c:317:13: warning: implicit declaration of function 'RF1_PollInterrupt' [-Wimplicit-function-declaration]
+             RF1_PollInterrupt();
+             ^
+..\RNET\Radio.c:322:32: error: 'RF1_FIFO_STATUS_RX_EMPTY' undeclared (first use in this function)
+                 if (!(status & RF1_FIFO_STATUS_RX_EMPTY) ||
+                                ^
+..\RNET\Radio.c:323:31: error: 'RF1_FIFO_STATUS_RX_FULL' undeclared (first use in this function)
+                     (status & RF1_FIFO_STATUS_RX_FULL)) { /* Rx not empty? */
+                               ^
+..\RNET\Radio.c:343:31: error: 'RF1_FLUSH_RX' undeclared (first use in this function)
+                     RF1_Write(RF1_FLUSH_RX);                /* flush old data */
+                               ^
+..\RNET\Radio.c:399:30: error: 'RF1_STATUS_MAX_RT' undeclared (first use in this function)
+                 if (status & RF1_STATUS_MAX_RT) { /* retry timeout interrupt */
+                              ^
+..\RNET\Radio.c:400:31: error: 'RF1_FLUSH_TX' undeclared (first use in this function)
+                     RF1_Write(RF1_FLUSH_TX);      /* flush old data */
+                               ^
+..\RNET\Radio.c: In function 'RADIO_PowerUp':
+..\RNET\Radio.c:537:11: warning: implicit declaration of function 'RF1_WriteRegister' [-Wimplicit-function-declaration]
+     (void)RF1_WriteRegister(RF1_EN_RXADDR, RF1_EN_RXADDR_ERX_ALL);
+           ^
+..\RNET\Radio.c:537:29: error: 'RF1_EN_RXADDR' undeclared (first use in this function)
+     (void)RF1_WriteRegister(RF1_EN_RXADDR, RF1_EN_RXADDR_ERX_ALL);
+                             ^
+..\RNET\Radio.c:537:44: error: 'RF1_EN_RXADDR_ERX_ALL' undeclared (first use in this function)
+     (void)RF1_WriteRegister(RF1_EN_RXADDR, RF1_EN_RXADDR_ERX_ALL);
+                                            ^
+..\RNET\Radio.c:540:5: warning: implicit declaration of function 'RF1_ResetStatusIRQ' [-Wimplicit-function-declaration]
+     RF1_ResetStatusIRQ(RF1_STATUS_RX_DR | RF1_STATUS_TX_DS | RF1_STATUS_MAX_RT);
+     ^
+..\RNET\Radio.c:540:24: error: 'RF1_STATUS_RX_DR' undeclared (first use in this function)
+     RF1_ResetStatusIRQ(RF1_STATUS_RX_DR | RF1_STATUS_TX_DS | RF1_STATUS_MAX_RT);
+                        ^
+..\RNET\Radio.c:540:43: error: 'RF1_STATUS_TX_DS' undeclared (first use in this function)
+     RF1_ResetStatusIRQ(RF1_STATUS_RX_DR | RF1_STATUS_TX_DS | RF1_STATUS_MAX_RT);
+                                           ^
+..\RNET\Radio.c:540:62: error: 'RF1_STATUS_MAX_RT' undeclared (first use in this function)
+     RF1_ResetStatusIRQ(RF1_STATUS_RX_DR | RF1_STATUS_TX_DS | RF1_STATUS_MAX_RT);
+                                                              ^
+..\RNET\Radio.c:549:11: warning: implicit declaration of function 'RF1_EnableAutoAck' [-Wimplicit-function-declaration]
+     (void)RF1_EnableAutoAck(RF1_EN_AA_ENAA_ALL);
+           ^
+..\RNET\Radio.c:549:29: error: 'RF1_EN_AA_ENAA_ALL' undeclared (first use in this function)
+     (void)RF1_EnableAutoAck(RF1_EN_AA_ENAA_ALL);
+                             ^
+..\RNET\Radio.c:553:23: error: 'RF1_SETUP_RETR' undeclared (first use in this function)
+     RF1_WriteRegister(RF1_SETUP_RETR, RF1_SETUP_RETR_ARD_750 | RF1_SETUP_RETR_ARC_15);
+                       ^
+..\RNET\Radio.c:553:39: error: 'RF1_SETUP_RETR_ARD_750' undeclared (first use in this function)
+     RF1_WriteRegister(RF1_SETUP_RETR, RF1_SETUP_RETR_ARD_750 | RF1_SETUP_RETR_ARC_15);
+                                       ^
+..\RNET\Radio.c:553:64: error: 'RF1_SETUP_RETR_ARC_15' undeclared (first use in this function)
+     RF1_WriteRegister(RF1_SETUP_RETR, RF1_SETUP_RETR_ARD_750 | RF1_SETUP_RETR_ARC_15);
+                                                                ^
+..\RNET\Radio.c:477:9: warning: unused variable 'i' [-Wunused-variable]
+     int i;
+         ^
+..\RNET\Radio.c:476:13: warning: unused variable 'addr' [-Wunused-variable]
+     uint8_t addr[RADIO_NOF_ADDR_BYTES];
+             ^
+--------------- Rebuild Failed: 01/27/2018 02:45:03 ---------------

@@ -12,7 +12,6 @@
 #include "RNWK.h"
 #include "RNetConf.h"
 #include "RPHY.h"
-//#include "UTIL1.h"
 
 static uint8_t RMAC_SeqNr = 0;
 static uint8_t RMAC_ExpectedAckSeqNr;

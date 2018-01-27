@@ -10,8 +10,10 @@
 #ifndef RADIO_H_
 #define RADIO_H_
 
-#include "RNetConf.h"
+#include <stdint.h>
+#include <stdbool.h>
 
+#include "RNetConf.h"
 
 /*!
  * \brief Set the radio communication channel

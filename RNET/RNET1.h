@@ -87,15 +87,16 @@
 #ifndef __RNET1_H
 #define __RNET1_H
 
+#include <stdint.h>
 /* MODULE RNET1. */
-#include "MCUC1.h" /* SDK and API used */
+//#include "MCUC1.h" /* SDK and API used */
 #include "RNET1config.h" /* configuration */
 
 /* Include inherited components */
-#include "RF1.h"
-#include "MCUC1.h"
-#include "UTIL1.h"
-#include "FRTOS1.h"
+//#include "RF1.h"
+//#include "MCUC1.h"
+//#include "UTIL1.h"
+//#include "FRTOS1.h"
 
 
 #define RNET1_PARSE_COMMAND_ENABLED  0 /* set to 1 if method ParseCommand() is present, 0 otherwise */

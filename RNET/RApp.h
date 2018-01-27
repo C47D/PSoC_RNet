@@ -81,4 +81,3 @@ void RAPP_Init(void);
 void RAPP_Deinit(void);
 
 #endif /* RAPP_H_ */
-
