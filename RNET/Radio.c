@@ -102,7 +102,7 @@ static void Err(unsigned char *msg)
 {
     /* not used, as no Shell used */
     //(void)msg;
-    UART_PutString(msg);
+    UART_PutString((const char *) msg);
 }
 
 /* callback called from radio driver */
@@ -130,8 +130,8 @@ static uint8_t RADIO_Flush(void)
 {
     // RF1_Write(RF1_FLUSH_RX); /* flush old data */
     // RF1_Write(RF1_FLUSH_TX); /* flush old data */
-    RF1_flush_rx_cmd();
-    RF1_flush_rx_cmd();
+    RF1_flush_rx();
+    RF1_flush_rx();
     
     return ERR_OK;
 }
@@ -272,13 +272,15 @@ static uint8_t CheckRx(void)
     packet.rxtx = &RPHY_BUF_SIZE(packet.phyData);
 #endif
 
-    status = RF1_GetStatusClrIRQ();
+    //status = RF1_GetStatusClrIRQ();
+    status = RF1_get_status_clear_irq();
     hasRx = (status & RF1_STATUS_RX_DR) != 0;
     
 #if !RF1_CONFIG_IRQ_PIN_ENABLED
 #if 1             /* experimental */
     if (!hasRx) { /* interrupt flag not set, check if we have otherwise data */
         (void)RF1_GetFifoStatus(&status);
+        
         if (!(status & RF1_FIFO_STATUS_RX_EMPTY) ||
             (status & RF1_FIFO_STATUS_RX_FULL)) { /* Rx not empty? */
             hasRx = true;
@@ -290,20 +292,24 @@ static uint8_t CheckRx(void)
     if (hasRx) { /* data received interrupt */
         hasRxData = true;
 #if NRF24_DYNAMIC_PAYLOAD
-        (void)RF1_ReadNofRxPayload(&payloadSize);
+        //(void)RF1_ReadNofRxPayload(&payloadSize);
+        payloadSize = RF1_read_payload_width_cmd();
+        
         if (payloadSize == 0 || payloadSize > 32) { /* packet with error? */
-            RF1_Write(RF1_FLUSH_RX);                /* flush old data */
+            //RF1_Write(RF1_FLUSH_RX);                /* flush old data */
+            RF1_flush_rx();
+            
             return ERR_FAILED;
         } else {
-            RF1_RxPayload(packet.rxtx, payloadSize); /* get payload: note that
-                                                        we transmit <size> as
-                                                        payload! */
+            /* get payload: note that we transmit <size> as payload! */
+            //RF1_RxPayload(packet.rxtx, payloadSize);
+            RF1_get_rx_payload(packet.rxtx, payloadSize);
+            
             RPHY_BUF_SIZE(packet.phyData) = payloadSize;
         }
 #else
-        RF1_RxPayload(
-            packet.rxtx, RPHY_PAYLOAD_SIZE); /* get payload: note that we
-                                                transmit <size> as payload! */
+        /* get payload: note that we transmit <size> as payload! */
+        RF1_RxPayload(packet.rxtx, RPHY_PAYLOAD_SIZE);
 #endif
     }
     
@@ -365,13 +371,16 @@ static void RADIO_HandleStateMachine(void)
         /* we are ready to receive/send data */
         case RADIO_READY_FOR_TX_RX_DATA:
 #if !RF1_CONFIG_IRQ_PIN_ENABLED
-            RF1_PollInterrupt();
-#if 1                             /* experimental */
+            //RF1_PollInterrupt();
+            RF1_poll_interrupt();
+#if 1   /* experimental */
             /* interrupt flag not set, check if we have otherwise data */
             if (!RADIO_isrFlag) {
                 (void)RF1_GetFifoStatus(&status);
-                if (!(status & RF1_FIFO_STATUS_RX_EMPTY) ||
-                    (status & RF1_FIFO_STATUS_RX_FULL)) { /* Rx not empty? */
+                
+                /* Rx not empty? */
+                if (!(status & RF1_FIFO_STATUS_RX_EMPTY) || // RF1_FIFO_STATUS_RX_EMPTY  (1<<0)
+                    (status & RF1_FIFO_STATUS_RX_FULL)) {
                     RADIO_isrFlag = true;
                 }
             }
@@ -389,17 +398,17 @@ static void RADIO_HandleStateMachine(void)
                 (void)RF1_GetFifoStatus(&status);
                 
                 /* no data, but still flag set? */
-                if (res == ERR_RXEMPTY &&
-                    !(status & RF1_FIFO_STATUS_RX_EMPTY)) {
+                // RF1_FIFO_STATUS_RX_EMPTY  (1<<0)
+                if (ERR_RXEMPTY == res && !(status & RF1_FIFO_STATUS_RX_EMPTY)) {
                     //RF1_Write(RF1_FLUSH_RX); /* flush old data */
-                    RF1_flush_rx_cmd();
+                    RF1_flush_rx();
                     
                     /* continue listening */
                     RADIO_AppStatus = RADIO_RECEIVER_ALWAYS_ON;
                     
                 /* Rx not empty? */
-                } else if (!(status & RF1_FIFO_STATUS_RX_EMPTY) ||
-                           (status & RF1_FIFO_STATUS_RX_FULL)) {
+                } else if (!(status & RF1_FIFO_STATUS_RX_EMPTY) || // RF1_FIFO_STATUS_RX_EMPTY  (1<<0)
+                           (status & RF1_FIFO_STATUS_RX_FULL)) { // RF1_FIFO_STATUS_RX_FULL  (1<<1)
                     RADIO_isrFlag = true; /* stay in current state */
                 } else {
                     RADIO_AppStatus =
@@ -445,29 +454,30 @@ static void RADIO_HandleStateMachine(void)
 
         case RADIO_WAITING_DATA_SENT:
 #if !RF1_CONFIG_IRQ_PIN_ENABLED
-            RF1_PollInterrupt();
+            //RF1_PollInterrupt();
+            RF1_poll_interrupt();
 #else /* experimental */
             if (!RADIO_isrFlag) { /* check if we missed an interrupt? */
-                RF1_PollInterrupt();
+                //RF1_PollInterrupt();
+                RF1_poll_interrupt();
             }
 #endif
 
 /* check if we have received an interrupt: this is either timeout or low level ack */
             if (RADIO_isrFlag) {
                 RADIO_isrFlag = false; /* reset interrupt flag */
-                status = RF1_GetStatusClrIRQ();
+                //status = RF1_GetStatusClrIRQ();
+                status = RF1_get_status_clear_irq();
                 
                 /* retry timeout interrupt */
-                if (status & RF1_STATUS_MAX_RT) {
+                if (status & RF1_STATUS_MAX_RT) { // RF1_STATUS_MAX_RT = 0x10
                     //RF1_Write(RF1_FLUSH_TX);      /* flush old data */
-                    RF1_flush_rx_cmd();
+                    RF1_flush_rx();
                     RADIO_AppStatus = RADIO_TIMEOUT; /* timeout */
                     WaitRandomTime();
                 } else {
 #if RNET1_CREATE_EVENTS
-                    /*lint -save -e522 function lacks side effect  */
                     RNET1_OnRadioEvent(RNET1_RADIO_MSG_SENT);
-                    /*lint -restore */
 #endif
                     /* turn receive on */
                     RADIO_AppStatus = RADIO_RECEIVER_ALWAYS_ON;
@@ -536,14 +546,14 @@ uint8_t RADIO_SetChannel(uint8_t channel)
  */
 uint8_t RADIO_PowerUp(void)
 {
-    uint8_t addr[RADIO_NOF_ADDR_BYTES];
-    int i;
+    //uint8_t addr[RADIO_NOF_ADDR_BYTES];
 
     //RF1_Init(); /* set CE and CSN to initialization value */
     RF1_start();
 
     //RF1_WriteRegister(RF1_RF_SETUP, RF1_RF_SETUP_RF_PWR_0 | RNET_CONFIG_NRF24_DATA_RATE);
     RF1_write_register(NRF_RF_SETUP_REG, NRF_RF_SETUP_RF_PWR_0 | RNET_CONFIG_NRF24_DATA_RATE);
+    
 #if NRF24_DYNAMIC_PAYLOAD
     /* enable dynamic payload, set EN_DPL for dynamic payload */
     //(void)RF1_WriteFeature(
@@ -603,7 +613,9 @@ uint8_t RADIO_PowerUp(void)
     
     /* Enable RX_ADDR address matching */
     /* enable all data pipes */
-    (void)RF1_WriteRegister(RF1_EN_RXADDR, RF1_EN_RXADDR_ERX_ALL);
+    // RF1_EN_RXADDR_ERX_ALL = 0x37
+    //(void)RF1_WriteRegister(RF1_EN_RXADDR, RF1_EN_RXADDR_ERX_ALL);
+    RF1_write_register(NRF_EN_RXADDR_ERX_P0, 0x37);
 
     /* clear interrupt flags */
     //RF1_ResetStatusIRQ(RF1_STATUS_RX_DR | RF1_STATUS_TX_DS | RF1_STATUS_MAX_RT);
@@ -616,11 +628,14 @@ uint8_t RADIO_PowerUp(void)
     (void)RF1_EnableAutoAck(RF1_EN_AA_ENAA_P0);
 #else
     /* enable auto acknowledge on all pipes. RX_ADDR_P0 needs to be equal to TX_ADDR! */
-    (void)RF1_EnableAutoAck(RF1_EN_AA_ENAA_ALL);
+    //(void)RF1_EnableAutoAck(RF1_EN_AA_ENAA_ALL);
+    // RF1_EN_AA_ENAA_ALL = 0x3F
+    RF1_enable_auto_ack(0x3F);
 #endif
 #endif
     /* Important: need 750 us delay between every retry */
-    RF1_WriteRegister(RF1_SETUP_RETR, RF1_SETUP_RETR_ARD_750 | RF1_SETUP_RETR_ARC_15);
+    //RF1_WriteRegister(RF1_SETUP_RETR, RF1_SETUP_RETR_ARD_750 | RF1_SETUP_RETR_ARC_15);
+    RF1_write_register(NRF_SETUP_RETR_REG, NRF_SETUP_RETR_ARD_750_US | NRF_SETUP_RETR_ARC_15);
 
     RX_POWERUP();        /* Power up in receiving mode */
     (void)RADIO_Flush(); /* flush possible old data */

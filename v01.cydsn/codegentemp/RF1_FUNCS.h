@@ -91,7 +91,7 @@ void RF1_get_tx_address(uint8_t *addr, size_t size);
 
 // RX_PW_P0, RX_PW_P1, RX_PW_P2, RX_PW_P3, RX_PW_P4, RX_PW_P5 Reg
 void RF1_set_payload_size(const nrf_pipe_payload_size pipe,
-                                     uint8_t size);
+                                          uint8_t size);
 uint8_t RF1_get_payload_size(const nrf_pipe_payload_size pipe);
 
 // FIFO_STATUS Reg
@@ -120,7 +120,7 @@ bool RF1_is_data_ready(void);
 void RF1_get_rx_payload(uint8_t *payload, const size_t size);
 void RF1_tx_transmit_wait_no_ack(const uint8_t *data, size_t size);
 void RF1_rx_write_payload(const nrf_pipe pipe, const uint8_t *data,
-                                     size_t size);
+                                         size_t size);
 uint8_t RF1_get_data_pipe_with_payload(void);
 uint8_t RF1_received_power_detector(void);
 bool RF1_is_tx_fifo_full(void);
@@ -131,6 +131,12 @@ bool RF1_test_carrier(void);
 void RF1_clear_all_irqs(void);
 void RF1_clear_irq_flag(const nrf_irq irq_flag);
 nrf_irq RF1_get_irq_flag(void);
+void RF1_poll_interrupt(void);
+uint8_t RF1_get_status_clear_irq(void);
+
+// command wrappers
+void RF1_flush_rx(void);
+void RF1_flush_tx(void);
 
 #endif /* RF1_FUNCS_H */
 
