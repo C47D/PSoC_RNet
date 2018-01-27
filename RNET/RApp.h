@@ -37,7 +37,7 @@
 #define RAPP_PacketDesc       RPHY_PacketDesc
 
 /* message handler */
-typedef uint8_t (*RAPP_MsgHandler) (RAPP_MSG_Type type, uint8_t size, uint8_t *data, RAPP_ShortAddrType srcAddr, bool *handled, RAPP_PacketDesc *packet);
+typedef uint8_t (*RAPP_MsgHandler)(RAPP_MSG_Type type, uint8_t size, uint8_t *data, RAPP_ShortAddrType srcAddr, bool *handled, RAPP_PacketDesc *packet);
 
 uint8_t RAPP_SetMessageHandlerTable(const RAPP_MsgHandler *table);
 

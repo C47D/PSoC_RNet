@@ -14,7 +14,7 @@
 //#include "RNET1.h"  /* component main header file, NOT FOUND */
 #include "nRF24_FUNCS.h"
 
-//#include "RNet_AppConfig.h" /* User application configuration file */
+#include "RNet_AppConfig.h" /* User application configuration file */
 #include "RNET1config.h"  /* configuration file */
 
 /* Default configuration items, can be overwritten by the application configuration header file: */
@@ -29,7 +29,8 @@
 #if RNET_CONFIG_TRANSCEIVER_TYPE==RNET_CONFIG_TRANSCEIVER_NRF24
 /* nRF24L01+ specific settings */
 #ifndef RNET_CONFIG_NRF24_DATA_RATE
-#define RNET_CONFIG_NRF24_DATA_RATE  (RF1_RF_SETUP_RF_DR_250)
+//#define RNET_CONFIG_NRF24_DATA_RATE  (RF1_RF_SETUP_RF_DR_250)
+#define RNET_CONFIG_NRF24_DATA_RATE  (NRF_RF_SETUP_RF_DR_250)
   /*!< default transceiver data rate */
 #endif
 
@@ -81,8 +82,8 @@
 #endif
 
 #ifndef RNET_CONFIG_REMOTE_STDIO
+/*!< 1 for remote stdio over radio enabled, 0 for disabled. */
 #define RNET_CONFIG_REMOTE_STDIO        (0)
-  /*!< 1 for remote stdio over radio enabled, 0 for disabled. */
 #endif
 
 
