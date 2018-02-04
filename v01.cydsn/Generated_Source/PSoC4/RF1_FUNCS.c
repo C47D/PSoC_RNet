@@ -56,11 +56,11 @@ void RF1_start(void)
 {
     // Recommended delay before start using the nRF24
     CyDelay(NRF_POWER_UP_DELAY);
-    
+
     // Now the radio is in Power Down mode
-    
+
     // Start the SPI and set CE and SS to a known value
-#if (_PSOC6==1) // PSoC6
+#if defined (_PSOC6)
     /* We are using the low level driver, so pass NULL to the context */
     (void) Cy_SCB_SPI_Init(SPI_HW, &SPI_config, NULL);
     Cy_SCB_SPI_Enable(SPI_HW);
@@ -77,10 +77,10 @@ void RF1_start(void)
     RF1_flush_tx_cmd();
     // Clear IRQ flags
     RF1_clear_all_irqs();
-    
+
     // Configure the nRF24 with the data from the customizer
     RF1_init();
-    
+
     // After PWR_UP = 1 the radio is in Standby-I mode, 130us of delay for settling
     CyDelayUs(150);
 }
@@ -124,7 +124,7 @@ void RF1_init(void)
 #endif
 
     RF1_write_register(NRF_CONFIG_REG, CUSTOMIZER_CONFIG);
-    
+
     // Set the _nrf_addr_width variable
     _addr_width_conf_to_bytes(CUSTOMIZER_SETUP_AW);
 }
@@ -300,7 +300,7 @@ void RF1_set_channel(uint8_t channel)
     }
 
     RF1_write_register(NRF_RF_CH_REG, channel);
-    
+
     // Flush both nRF24 FIFOs, from mcuoneclipse nrf24 component
     RF1_flush_rx_cmd();
     RF1_flush_tx_cmd();
@@ -345,7 +345,7 @@ void RF1_set_rx_pipe_0_address(const uint8_t* addr, size_t size)
     if (_nrf_addr_width < size) {
         size = _nrf_addr_width;
     }
-    
+
     RF1_write_long_register(NRF_RX_ADDR_P0_REG, addr, size);
 }
 
@@ -364,7 +364,7 @@ void RF1_get_rx_pipe_0_address(uint8_t* addr, size_t size)
     if (_nrf_addr_width < size) {
         size = _nrf_addr_width;
     }
-    
+
     RF1_read_long_register(NRF_RX_ADDR_P0_REG, addr, size);
 }
 
@@ -385,7 +385,7 @@ void RF1_set_rx_pipe_1_address(const uint8_t* addr, size_t size)
     if (_nrf_addr_width < size) {
         size = _nrf_addr_width;
     }
-    
+
     RF1_write_long_register(NRF_RX_ADDR_P1_REG, addr, size);
 }
 
@@ -404,7 +404,7 @@ void RF1_get_rx_pipe_1_address(uint8_t* addr, size_t size)
     if (_nrf_addr_width < size) {
         size = _nrf_addr_width;
     }
-    
+
     RF1_read_long_register(NRF_RX_ADDR_P1_REG, addr, size);
 }
 
@@ -433,10 +433,10 @@ void RF1_get_rx_pipe_2_address(uint8_t* addr, size_t size)
     if (_nrf_addr_width < size) {
         size = _nrf_addr_width;
     }
-    
+
     // The pipe2 address is the same as the pipe1 address except the LSB
-    nRF24_read_long_register(NRF_RX_ADDR_P1_REG, addr, size - 1);
-    addr[size - 1] = nRF24_read_register(NRF_RX_ADDR_P2_REG);
+    RF1_read_long_register(NRF_RX_ADDR_P1_REG, addr, size - 1);
+    addr[size - 1] = RF1_read_register(NRF_RX_ADDR_P2_REG);
 }
 
 /**
@@ -464,10 +464,10 @@ void RF1_get_rx_pipe_3_address(uint8_t* addr, size_t size)
     if (_nrf_addr_width < size) {
         size = _nrf_addr_width;
     }
-    
+
     // The pipe3 address is the same as the pipe1 address except the LSB
-    nRF24_read_long_register(NRF_RX_ADDR_P1_REG, addr, size - 1);
-    addr[size - 1] = nRF24_read_register(NRF_RX_ADDR_P3_REG);
+    RF1_read_long_register(NRF_RX_ADDR_P1_REG, addr, size - 1);
+    addr[size - 1] = RF1_read_register(NRF_RX_ADDR_P3_REG);
 }
 
 /**
@@ -495,10 +495,10 @@ void RF1_get_rx_pipe_4_address(uint8_t* addr, size_t size)
     if (_nrf_addr_width < size) {
         size = _nrf_addr_width;
     }
-    
+
     // The pipe4 address is the same as the pipe1 address except the LSB
-    nRF24_read_long_register(NRF_RX_ADDR_P1_REG, addr, size - 1);
-    addr[size - 1] = nRF24_read_register(NRF_RX_ADDR_P4_REG);
+    RF1_read_long_register(NRF_RX_ADDR_P1_REG, addr, size - 1);
+    addr[size - 1] = RF1_read_register(NRF_RX_ADDR_P4_REG);
 }
 
 /**
@@ -526,10 +526,10 @@ void RF1_get_rx_pipe_5_address(uint8_t* addr, size_t size)
     if (_nrf_addr_width < size) {
         size = _nrf_addr_width;
     }
-    
+
     // The pipe5 address is the same as the pipe1 address except the LSB
-    nRF24_read_long_register(NRF_RX_ADDR_P1_REG, addr, size - 1);
-    addr[size - 1] = nRF24_read_register(NRF_RX_ADDR_P5_REG);
+    RF1_read_long_register(NRF_RX_ADDR_P1_REG, addr, size - 1);
+    addr[size - 1] = RF1_read_register(NRF_RX_ADDR_P5_REG);
 }
 
 /**
@@ -547,7 +547,7 @@ void RF1_set_tx_address(const uint8_t *const addr, size_t size)
     if (_nrf_addr_width < size) {
         size = _nrf_addr_width;
     }
-    
+
     RF1_write_long_register(NRF_TX_ADDR_REG, addr, size);
 }
 
@@ -566,7 +566,7 @@ void RF1_get_tx_address(uint8_t* addr, size_t size)
     if (_nrf_addr_width < size) {
         size = _nrf_addr_width;
     }
-    
+
     RF1_read_long_register(NRF_TX_ADDR_REG, addr, size);
 }
 
@@ -583,7 +583,7 @@ void RF1_set_payload_size(const nrf_pipe_payload_size pipe, uint8_t size)
     if (NRF_MAX_PAYLOAD_SIZE < size) {
         size = NRF_MAX_PAYLOAD_SIZE;
     }
-    
+
     RF1_write_register(pipe, size);
 }
 
@@ -616,11 +616,22 @@ void RF1_reuse_last_transmitted_payload(void)
  *
  * @param const nrf_pipe pipe:
  */
-void RF1_enable_dynamic_payload(const nrf_pipe pipe)
+void RF1_enable_dynamic_payload(void)
 {
-    RF1_set_bit(NRF_EN_AA_REG, pipe);
+    // TODO: Read the FEATURE register, check the needed values and set
+    // the bits if not set already
     RF1_set_bit(NRF_FEATURE_REG, NRF_FEATURE_EN_ACK_PAY);
     RF1_set_bit(NRF_FEATURE_REG, NRF_FEATURE_EN_DPL);
+}
+
+/**
+ * @brief Enable dynamic payload on the given pipe.
+ *
+ * @param const nrf_pipe pipe:
+ */
+void RF1_enable_dynamic_payload_on_pipe(const nrf_pipe pipe)
+{
+    RF1_set_bit(NRF_EN_AA_REG, pipe);
     RF1_set_bit(NRF_DYNPD_REG, pipe);
 }
 
@@ -629,11 +640,22 @@ void RF1_enable_dynamic_payload(const nrf_pipe pipe)
  *
  * @param const nrf_pipe pipe:
  */
-void RF1_disable_dynamic_payload(const nrf_pipe pipe)
+void RF1_disable_dynamic_payload()
 {
-    RF1_clear_bit(NRF_EN_AA_REG, pipe);
+    // TODO: Read the FEATURE register, check the needed values and clear
+    // the bits if not clear already
     RF1_clear_bit(NRF_FEATURE_REG, NRF_FEATURE_EN_ACK_PAY);
     RF1_clear_bit(NRF_FEATURE_REG, NRF_FEATURE_EN_DPL);
+}
+
+/**
+ * @brief Disable dynamic payload on the given pipe.
+ *
+ * @param const nrf_pipe pipe:
+ */
+void RF1_disable_dynamic_payload_on_pipe(const nrf_pipe pipe)
+{
+    RF1_clear_bit(NRF_EN_AA_REG, pipe);
     RF1_clear_bit(NRF_DYNPD_REG, pipe);
 }
 
@@ -693,7 +715,7 @@ void RF1_disable_payload_with_no_ack_cmd(void)
  */
 void RF1_start_listening(void)
 {
-#if (_PSOC6==1)
+#if defined (_PSOC6)
     Cy_GPIO_Set(CE_PORT, CE_NUM);
 #else
     CE_Write(1);
@@ -708,7 +730,7 @@ void RF1_start_listening(void)
  */
 void RF1_stop_listening(void)
 {
-#if (_PSOC6==1)
+#if defined (_PSOC6)
     Cy_GPIO_Clr(CE_PORT, CE_NUM);
 #else
     CE_Write(0);
@@ -723,7 +745,7 @@ void RF1_stop_listening(void)
  */
 void RF1_transmit_pulse(void)
 {
-#if (_PSOC6==1)
+#if defined (_PSOC6)
     Cy_GPIO_Set(CE_PORT, CE_NUM);
     CyDelayUs(NRF_CE_PULSE_WIDTH);
     Cy_GPIO_Clr(CE_PORT, CE_NUM);
@@ -742,6 +764,11 @@ void RF1_transmit_pulse(void)
 uint8_t RF1_get_status(void)
 {
     return RF1_nop_cmd();
+}
+
+uint8_t RF1_get_fifo_status(void)
+{
+    return RF1_read_register(NRF_FIFO_STATUS_REG);
 }
 
 /**
@@ -782,7 +809,7 @@ void RF1_put_in_tx_fifo(const uint8_t* data, size_t size)
     if (NRF_MAX_PAYLOAD_SIZE < size) {
         size = NRF_MAX_PAYLOAD_SIZE;
     }
-    
+
     RF1_write_tx_payload_cmd(data, size);
 }
 
@@ -797,7 +824,7 @@ void RF1_transmit(const uint8_t* data, size_t size)
     if (NULL == data) {
         return;
     }
-    
+
     if (NRF_MAX_PAYLOAD_SIZE < size) {
         size = NRF_MAX_PAYLOAD_SIZE;
     }
@@ -827,7 +854,7 @@ void RF1_get_rx_payload(uint8_t *data, const size_t size)
     if (NULL == data) {
         return;
     }
-#if (_PSOC6==1)
+#if defined (_PSOC6)
     Cy_GPIO_Clr(CE_PORT, CE_NUM);
     RF1_read_rx_payload_cmd(data, size);
     Cy_GPIO_Set(CE_PORT, CE_NUM);
@@ -853,7 +880,7 @@ void RF1_tx_transmit_wait_no_ack(const uint8_t *data, size_t size)
     if (NRF_MAX_PAYLOAD_SIZE < size) {
         return;
     }
-    
+
     RF1_no_ack_payload_cmd(data, size);
     RF1_transmit_pulse();
 }
@@ -876,7 +903,7 @@ void RF1_rx_write_payload(const nrf_pipe pipe,
     if (NRF_MAX_PAYLOAD_SIZE < size) {
         size = NRF_MAX_PAYLOAD_SIZE;
     }
-    
+
     RF1_write_ack_payload_cmd(pipe, data, size);
 }
 
@@ -960,10 +987,10 @@ void RF1_clear_irq_flag(const nrf_irq irq_flag)
 nrf_irq RF1_get_irq_flag(void)
 {
     nrf_irq irq = NRF_NONE_IRQ;
-    
+
     // Get the STATUS register
     uint8_t sts = RF1_nop_cmd();
-    
+
     // We only care if bits 4, 5 or 6 are set, so we mask the STATUS with 0x0111_0000
     switch (sts & NRF_ALL_IRQ_MASK) {
     case NRF_STATUS_RX_DR_MASK:
@@ -979,20 +1006,20 @@ nrf_irq RF1_get_irq_flag(void)
         irq = NRF_ALL_IRQ_MASK;
         break;
     }
-    
+
     return irq;
 }
 
 void RF1_poll_interrupt(void)
 {
-    
+
 }
 
 uint8_t RF1_get_status_clear_irq(void)
 {
     uint8_t sts = RF1_nop_cmd();
     RF1_write_register(NRF_STATUS_REG, NRF_ALL_IRQ_MASK);
-    
+
     return sts;
 }
 

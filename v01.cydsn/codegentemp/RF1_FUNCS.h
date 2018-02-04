@@ -97,8 +97,10 @@ uint8_t RF1_get_payload_size(const nrf_pipe_payload_size pipe);
 // FIFO_STATUS Reg
 void RF1_reuse_last_transmitted_payload(void);
 // DYNPD Reg
-void RF1_enable_dynamic_payload(const nrf_pipe pipe);
-void RF1_disable_dynamic_payload(const nrf_pipe pipe);
+void RF1_enable_dynamic_payload(void);
+void RF1_enable_dynamic_payload_on_pipe(const nrf_pipe pipe);
+void RF1_disable_dynamic_payload(void);
+void RF1_disable_dynamic_payload_on_pipe(const nrf_pipe pipe);
 // FEATURE Reg
 void RF1_enable_dynamic_payload_length(void);
 void RF1_enable_payload_with_ack(void);
@@ -112,6 +114,7 @@ void RF1_start_listening(void);
 void RF1_stop_listening(void);
 void RF1_transmit_pulse(void);
 uint8_t RF1_get_status(void);
+uint8_t RF1_get_fifo_status(void);
 uint8_t RF1_get_retransmissions_count(void);
 uint8_t RF1_get_lost_packets_count(void);
 void RF1_put_in_tx_fifo(const uint8_t *data, size_t size);

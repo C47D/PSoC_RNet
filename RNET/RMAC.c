@@ -16,7 +16,7 @@
 static uint8_t RMAC_SeqNr = 0;
 static uint8_t RMAC_ExpectedAckSeqNr;
 
-static void strcat(uint8_t *dst, size_t dstSize, const unsigned char *src)
+static void util_strcat(uint8_t *dst, size_t dstSize, const unsigned char *src)
 {
     dstSize--; /* for zero byte */
     /* point to the end of the source */
@@ -33,7 +33,7 @@ static void strcat(uint8_t *dst, size_t dstSize, const unsigned char *src)
     *dst = '\0';
 }
 
-static void chcat(uint8_t *dst, size_t dstSize, uint8_t ch)
+static void util_chcat(uint8_t *dst, size_t dstSize, uint8_t ch)
 {
     dstSize--; /* for zero byte */
     /* point to the end of the source */
@@ -109,41 +109,32 @@ void RMAC_DecodeType(uint8_t *buf, size_t bufSize, RPHY_PacketDesc *packet)
 
     type = (RMAC_MsgType)RMAC_BUF_TYPE(packet->phyData);
     buf[0] = '\0';
-    //UTIL1_chcat(buf, bufSize, '(');
-    chcat(buf, bufSize, '(');
+    util_chcat(buf, bufSize, '(');
     
     if ((uint8_t)type & (uint8_t)RMAC_MSG_TYPE_REQ_ACK) {
-        //UTIL1_strcat(buf, bufSize, (unsigned char *)"RACK");
-        strcat(buf, bufSize, (unsigned char *)"RACK");
+        util_strcat(buf, bufSize, (unsigned char *)"RACK");
         first = true;
     } else {
-        //UTIL1_strcat(buf, bufSize, (unsigned char *)"NACK");
-        strcat(buf, bufSize, (unsigned char *)"NACK");
+        util_strcat(buf, bufSize, (unsigned char *)"NACK");
         first = false;
     }
     if ((uint8_t)type & (uint8_t)RMAC_MSG_TYPE_DATA) {
         if (!first) {
-            //UTIL1_chcat(buf, bufSize, '|');
-            chcat(buf, bufSize, '|');
+            util_chcat(buf, bufSize, '|');
         }
-        //UTIL1_strcat(buf, bufSize, (unsigned char *)"DATA");
-        strcat(buf, bufSize, (unsigned char *)"DATA");
+        util_strcat(buf, bufSize, (unsigned char *)"DATA");
         first = false;
     }
     if ((uint8_t)type & (uint8_t)RMAC_MSG_TYPE_ACK) {
         if (!first) {
-            //UTIL1_chcat(buf, bufSize, '|');
-            chcat(buf, bufSize, '|');
+            util_chcat(buf, bufSize, '|');
         }
-        //UTIL1_strcat(buf, bufSize, (unsigned char *)"ACK");
-        strcat(buf, bufSize, (unsigned char *)"ACK");
+        util_strcat(buf, bufSize, (unsigned char *)"ACK");
     }
     if ((uint8_t)type & (uint8_t)RMAC_MSG_TYPE_CMD) {
-        //UTIL1_strcat(buf, bufSize, (unsigned char *)"CMD");
-        strcat(buf, bufSize, (unsigned char *)"CMD");
+        util_strcat(buf, bufSize, (unsigned char *)"CMD");
     }
-    //UTIL1_chcat(buf, bufSize, ')');
-    chcat(buf, bufSize, ')');
+    util_chcat(buf, bufSize, ')');
 }
 
 void RMAC_Deinit(void)

@@ -36,23 +36,23 @@
 uint8_t RF1_read_register(const nrf_register reg)
 {
     uint8_t data = 0;
-#if (_PSOC6==1) // PSoC6
+#if defined (_PSOC6) // PSoC6
     Cy_SCB_ClearRxFifo(SPI_HW);
     Cy_SCB_ClearTxFifo(SPI_HW);
-    
+
     Cy_GPIO_Clr(SS_PORT, SS_NUM);
-    
+
     Cy_SCB_WriteArrayBlocking(SPI_HW, (uint8_t []){NRF_R_REGISTER_CMD | reg, NRF_NOP_CMD}, 2);
-    
+
     while (Cy_SCB_IsTxComplete(SPI_HW) == false) {
     }
     CyDelayUs(1);
-    
+
     Cy_GPIO_Set(SS_PORT, SS_NUM);
-    
+
     (void)Cy_SCB_ReadRxFifo(SPI_HW);
     data = Cy_SCB_ReadRxFifo(SPI_HW);
-#elif (_PSOC4_SCB==1) // PSoC4
+#elif defined (_PSOC4_SCB) // PSoC4
     SPI_SpiUartClearRxBuffer();
     SPI_SpiUartClearTxBuffer();
 
@@ -98,25 +98,25 @@ uint8_t RF1_read_register(const nrf_register reg)
 void RF1_read_long_register(const nrf_register reg,
                                            uint8_t* data, const size_t size)
 {
-#if (_PSOC6==1) // PSoC6
+#if defined (_PSOC6) // PSoC6
     Cy_SCB_ClearRxFifo(SPI_HW);
     Cy_SCB_ClearTxFifo(SPI_HW);
-    
+
     Cy_GPIO_Clr(SS_PORT, SS_NUM);
     Cy_SCB_Write(SPI_HW, NRF_R_REGISTER_CMD | reg);
     while (Cy_SCB_GetNumInRxFifo(SPI_HW) == 0) {
     }
-    
+
     (void)Cy_SCB_ReadRxFifo(SPI_HW);
-    
+
     for(size_t i = 0; i < size; i++){
         while(Cy_SCB_Write(SPI_HW, NRF_NOP_CMD) == 0);
         while (Cy_SCB_GetNumInRxFifo(SPI_HW) == 0) {}
         data[1] = Cy_SCB_ReadRxFifo(SPI_HW);
     }
-    
+
     Cy_GPIO_Set(SS_PORT, SS_NUM);
-#elif (_PSOC4_SCB==1) // PSoC4
+#elif defined (_PSOC4_SCB) // PSoC4
     SPI_SpiUartClearRxBuffer();
     SPI_SpiUartClearTxBuffer();
 
@@ -124,10 +124,10 @@ void RF1_read_long_register(const nrf_register reg,
     SPI_SpiUartWriteTxData(NRF_R_REGISTER_CMD | reg);
     while (SPI_SpiUartGetRxBufferSize() == 0){
     }
-    
+
     // Read the status register, just to clear the rx fifo
     SPI_SpiUartReadRxData();
-    
+
     for (size_t i = 0; i < size; i++) {
         SPI_SpiUartWriteTxData(NRF_NOP_CMD);
         while (SPI_SpiUartGetRxBufferSize() == 0){}
@@ -144,7 +144,7 @@ void RF1_read_long_register(const nrf_register reg,
     }
     // Read the status register, just to clear the rx fifo
     SPI_ReadRxData();
-    
+
     for (size_t i = 0; i < size; i++) {
         SPI_WriteTxData(NRF_NOP_CMD);
         while (!(SPI_ReadTxStatus() & SPI_STS_BYTE_COMPLETE)) {
@@ -164,20 +164,20 @@ void RF1_read_long_register(const nrf_register reg,
  */
 void RF1_write_register(const nrf_register reg, const uint8_t data)
 {
-#if (_PSOC6==1)
+#if defined (_PSOC6)
     Cy_SCB_ClearRxFifo(SPI_HW);
     Cy_SCB_ClearTxFifo(SPI_HW);
-    
+
     Cy_GPIO_Clr(SS_PORT, SS_NUM);
-    
+
     Cy_SCB_WriteArrayBlocking(SPI_HW, (uint8_t []){NRF_W_REGISTER_CMD | reg, data}, 2);
-    
+
     while (Cy_SCB_IsTxComplete(SPI_HW) == false) {
     }
     CyDelayUs(1);
-    
+
     Cy_GPIO_Set(SS_PORT, SS_NUM);
-#elif (_PSOC4_SCB==1)
+#elif defined (_PSOC4_SCB)
     SPI_SpiUartClearRxBuffer();
     SPI_SpiUartClearTxBuffer();
 
@@ -211,20 +211,20 @@ void RF1_write_register(const nrf_register reg, const uint8_t data)
 void RF1_write_long_register(const nrf_register reg,
                                             const uint8_t* data, const size_t size)
 {
-#if (_PSOC6==1)
+#if defined (_PSOC6)
     Cy_SCB_ClearRxFifo(SPI_HW);
     Cy_SCB_ClearTxFifo(SPI_HW);
-    
+
     Cy_GPIO_Clr(SS_PORT, SS_NUM);
     Cy_SCB_SPI_Write(SPI_HW, NRF_W_REGISTER_CMD | reg);
     Cy_SCB_SPI_WriteArrayBlocking(SPI_HW, (void *) data, size);
-    
+
     while (Cy_SCB_IsTxComplete(SPI_HW) == false) {
     }
     CyDelayUs(1);
-    
+
     Cy_GPIO_Set(SS_PORT, SS_NUM);
-#elif (_PSOC4_SCB==1)
+#elif defined (_PSOC4_SCB)
     SPI_SpiUartClearRxBuffer();
     SPI_SpiUartClearTxBuffer();
 
@@ -271,7 +271,7 @@ bool RF1_read_bit(const nrf_register reg, const uint8_t bit)
         return false; // how to deal with this?
     }
 #endif
-    
+
     return (RF1_read_register(reg) & (1 << bit)) != 0;
 }
 
@@ -321,7 +321,7 @@ void RF1_clear_bit(const nrf_register reg, const uint8_t bit)
     if (8 < bit) {
         return;
     }
-    
+
     RF1_write_bit(reg, bit, 0);
 }
 
@@ -336,7 +336,7 @@ void RF1_set_bit(const nrf_register reg, const uint8_t bit)
     if (8 < bit) {
         return;
     }
-    
+
     RF1_write_bit(reg, bit, 1);
 }
 

@@ -274,15 +274,23 @@ static uint8_t CheckRx(void)
 
     //status = RF1_GetStatusClrIRQ();
     status = RF1_get_status_clear_irq();
-    hasRx = (status & RF1_STATUS_RX_DR) != 0;
+    //hasRx = (status & RF1_STATUS_RX_DR) != 0;
+    // RF1_STATUS_RX_DR = 0x40
+    hasRx = (status & 0x40) != 0;
     
 #if !RF1_CONFIG_IRQ_PIN_ENABLED
 #if 1             /* experimental */
     if (!hasRx) { /* interrupt flag not set, check if we have otherwise data */
-        (void)RF1_GetFifoStatus(&status);
+        //(void)RF1_GetFifoStatus(&status);
+        status = RF1_get_fifo_status();
         
-        if (!(status & RF1_FIFO_STATUS_RX_EMPTY) ||
-            (status & RF1_FIFO_STATUS_RX_FULL)) { /* Rx not empty? */
+        // RF1_FIFO_STATUS_RX_EMPTY = 1 << 0
+        // RF1_FIFO_STATUS_RX_FULL = 1 << 1
+        //if (!(status & RF1_FIFO_STATUS_RX_EMPTY) ||
+        //    (status & RF1_FIFO_STATUS_RX_FULL)) { /* Rx not empty? */
+        //    hasRx = true;
+        //}
+        if (!(status & 0x01) || (status & 0x02)) {
             hasRx = true;
         }
     }
@@ -376,11 +384,17 @@ static void RADIO_HandleStateMachine(void)
 #if 1   /* experimental */
             /* interrupt flag not set, check if we have otherwise data */
             if (!RADIO_isrFlag) {
-                (void)RF1_GetFifoStatus(&status);
+                //(void)RF1_GetFifoStatus(&status);
+                status = RF1_get_fifo_status();
                 
                 /* Rx not empty? */
-                if (!(status & RF1_FIFO_STATUS_RX_EMPTY) || // RF1_FIFO_STATUS_RX_EMPTY  (1<<0)
-                    (status & RF1_FIFO_STATUS_RX_FULL)) {
+                // RF1_FIFO_STATUS_RX_EMPTY = 1 << 0
+                // RF1_FIFO_STATUS_RX_FULL = 1 << 1
+                //if (!(status & RF1_FIFO_STATUS_RX_EMPTY) || // RF1_FIFO_STATUS_RX_EMPTY  (1<<0)
+                //    (status & RF1_FIFO_STATUS_RX_FULL)) {
+                //    RADIO_isrFlag = true;
+                //}
+                if (!(status & 0x01) || (status & 0x02)) {
                     RADIO_isrFlag = true;
                 }
             }
@@ -395,11 +409,13 @@ static void RADIO_HandleStateMachine(void)
                         RADIO_RECEIVER_ALWAYS_ON; /* continue listening */
                     return;                       /* get out of loop */
                 }
-                (void)RF1_GetFifoStatus(&status);
+                //(void)RF1_GetFifoStatus(&status);
+                status = RF1_get_fifo_status();
                 
                 /* no data, but still flag set? */
                 // RF1_FIFO_STATUS_RX_EMPTY  (1<<0)
-                if (ERR_RXEMPTY == res && !(status & RF1_FIFO_STATUS_RX_EMPTY)) {
+                //if (ERR_RXEMPTY == res && !(status & RF1_FIFO_STATUS_RX_EMPTY)) {
+                if (ERR_RXEMPTY == res && !(status & 0x01)) {
                     //RF1_Write(RF1_FLUSH_RX); /* flush old data */
                     RF1_flush_rx();
                     
@@ -407,8 +423,9 @@ static void RADIO_HandleStateMachine(void)
                     RADIO_AppStatus = RADIO_RECEIVER_ALWAYS_ON;
                     
                 /* Rx not empty? */
-                } else if (!(status & RF1_FIFO_STATUS_RX_EMPTY) || // RF1_FIFO_STATUS_RX_EMPTY  (1<<0)
-                           (status & RF1_FIFO_STATUS_RX_FULL)) { // RF1_FIFO_STATUS_RX_FULL  (1<<1)
+                //} else if (!(status & RF1_FIFO_STATUS_RX_EMPTY) || // RF1_FIFO_STATUS_RX_EMPTY  (1<<0)
+                //           (status & RF1_FIFO_STATUS_RX_FULL)) { // RF1_FIFO_STATUS_RX_FULL  (1<<1)
+                } else if (!(status & 0x01) || (status & 0x02)) {
                     RADIO_isrFlag = true; /* stay in current state */
                 } else {
                     RADIO_AppStatus =
@@ -470,7 +487,7 @@ static void RADIO_HandleStateMachine(void)
                 status = RF1_get_status_clear_irq();
                 
                 /* retry timeout interrupt */
-                if (status & RF1_STATUS_MAX_RT) { // RF1_STATUS_MAX_RT = 0x10
+                if (status & 0x10) { // RF1_STATUS_MAX_RT = 0x10
                     //RF1_Write(RF1_FLUSH_TX);      /* flush old data */
                     RF1_flush_rx();
                     RADIO_AppStatus = RADIO_TIMEOUT; /* timeout */
@@ -564,12 +581,12 @@ uint8_t RADIO_PowerUp(void)
     //  register for dynamic payload for pipe0 */
     /* set DYNPD register for dynamic payload for all pipes */
     //(void)RF1_EnableDynamicPayloadLength(RF1_DYNPD_DPL_ALL);
-    RF1_enable_dynamic_payload(NRF_PIPE0);
-    RF1_enable_dynamic_payload(NRF_PIPE1);
-    RF1_enable_dynamic_payload(NRF_PIPE2);
-    RF1_enable_dynamic_payload(NRF_PIPE3);
-    RF1_enable_dynamic_payload(NRF_PIPE4);
-    RF1_enable_dynamic_payload(NRF_PIPE5);
+    RF1_enable_dynamic_payload_on_pipe(NRF_PIPE0);
+    RF1_enable_dynamic_payload_on_pipe(NRF_PIPE1);
+    RF1_enable_dynamic_payload_on_pipe(NRF_PIPE2);
+    RF1_enable_dynamic_payload_on_pipe(NRF_PIPE3);
+    RF1_enable_dynamic_payload_on_pipe(NRF_PIPE4);
+    RF1_enable_dynamic_payload_on_pipe(NRF_PIPE5);
 #else
     /* static number of payload bytes we want to send and receive */
     (void)RF1_SetStaticPipePayload(0, RPHY_PAYLOAD_SIZE);
@@ -630,7 +647,7 @@ uint8_t RADIO_PowerUp(void)
     /* enable auto acknowledge on all pipes. RX_ADDR_P0 needs to be equal to TX_ADDR! */
     //(void)RF1_EnableAutoAck(RF1_EN_AA_ENAA_ALL);
     // RF1_EN_AA_ENAA_ALL = 0x3F
-    RF1_enable_auto_ack(0x3F);
+    RF1_write_register(NRF_EN_AA_REG, 0x3F);
 #endif
 #endif
     /* Important: need 750 us delay between every retry */

@@ -11,6 +11,11 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
+enum {
+    LED_ON,
+    LED_OFF,
+};
+
 typedef enum {
     RNETA_INITIAL, /* initialization state */
     RNETA_POWERUP, /* powered up the transceiver */
@@ -19,9 +24,10 @@ typedef enum {
 
 static RNETA_State appState = RNETA_INITIAL;
 
-static uint8_t RNETA_HandleRxMessage(RAPP_MSG_Type type, uint8_t size,
-                                     uint8_t *data, RNWK_ShortAddrType srcAddr,
-                                     bool *handled, RPHY_PacketDesc *packet)
+static uint8_t
+RNETA_HandleRxMessage(RAPP_MSG_Type type, uint8_t size, uint8_t *data,
+                      RNWK_ShortAddrType srcAddr, bool *handled,
+                      RPHY_PacketDesc *packet)
 {
     (void)size;
     (void)data;
@@ -31,14 +37,14 @@ static uint8_t RNETA_HandleRxMessage(RAPP_MSG_Type type, uint8_t size,
     switch (type) {
     case RAPP_MSG_TYPE_PING: /* <type><size><data */
         *handled = true;
-        /* to be defined: do something with the ping, e.g blink a LED */
-        //LED2_On(); /* green LED blink */
-        vTaskDelay(20 / portTICK_RATE_MS);
-        //LED2_Off();
+        LED_G_Write(LED_ON);
+        vTaskDelay(pdMS_TO_TICKS(20));
+        LED_G_Write(LED_OFF);
         return ERR_OK;
     default:
         break;
-    } /* switch */
+    }
+    
     return ERR_OK;
 }
 
@@ -54,15 +60,17 @@ static void RadioPowerUp(void)
     TickType_t xTime;
 
     xTime = xTaskGetTickCount();
-    if (xTime < (150 / portTICK_RATE_MS)) {
-        /* not powered for 100 ms: wait until we can access the radio
-         * transceiver */
-        xTime = (150 / portTICK_RATE_MS) - xTime; /* remaining ticks to wait */
+    
+    if (xTime < pdMS_TO_TICKS(150)) {
+        /* not powered for 100 ms:
+        * wait until we can access the radio transceiver */
+        xTime = pdMS_TO_TICKS(150) - xTime; /* remaining ticks to wait */
+        
         vTaskDelay(xTime);
     }
     
     /* enable the transceiver */
-    (void)RADIO_PowerUp();
+    RADIO_PowerUp();
 }
 
 static void Process(void)
@@ -79,47 +87,48 @@ static void Process(void)
             break;
 
         case RNETA_TX_RX:
-            (void)RADIO_Process();
+            RADIO_Process();
             break;
 
         default:
             break;
-        }      /* switch */
-        break; /* break for loop */
-    }          /* for */
+        }
+        break;
+    }
 }
 
 static portTASK_FUNCTION(RNetTask, pvParameters)
 {
-    (void)pvParameters; /* not used */
+    (void)pvParameters;
     
     uint32_t cntr = 0;
     uint8_t msgCntr = 0;
     appState = RNETA_INITIAL; /* initialize state machine state */
     
     /* set a default address */
-    if (ERR_OK != RAPP_SetThisNodeAddr(RNWK_ADDR_BROADCAST)) {
-        /* "ERR: Failed setting node address" */
-        while (1) {
-        }
-    }
+    // always return ERR_OK so no need to check for it
+    RAPP_SetThisNodeAddr(RNWK_ADDR_BROADCAST);
         
     while (1) {
-        /* process state machine */
-        Process();
+        
+        Process(); /* process state machine */
         cntr++;
         
         /* with an RTOS 10 ms/100 Hz tick rate, this is every second */
         if (100 == cntr) {
             //LED3_On(); /* blink blue LED for 20 ms */
+            LED_B_Write(LED_ON);
+            
             RAPP_SendPayloadDataBlock(&msgCntr, sizeof(msgCntr),
                                       RAPP_MSG_TYPE_PING, RNWK_ADDR_BROADCAST,
                                       RPHY_PACKET_FLAGS_NONE);
             msgCntr++;
             cntr = 0;
+            
             //vTaskDelay(20 / portTICK_RATE_MS);
             vTaskDelay(pdMS_TO_TICKS(20));
             //LED3_Off(); /* blink blue LED */
+            LED_B_Write(LED_OFF);
         }
         
         vTaskDelay(pdMS_TO_TICKS(10));
@@ -127,30 +136,27 @@ static portTASK_FUNCTION(RNetTask, pvParameters)
     }
 }
 
-void RNETA_Init(void)
+void RNETApp_Init(void)
 {
+    BaseType_t rnet_task_base;
+    
     /* initialize stack */
     RSTACK_Init();
     
-    /* assign application message handler */
-    if (ERR_OK != RAPP_SetMessageHandlerTable(handlerTable)) {
-        /* "ERR: failed setting message handler!" */
-        while (1) {
-        }
+    /* SetMessageHandlerTable always returns ERR_OK so no need to check it */
+    RAPP_SetMessageHandlerTable(handlerTable);
+
+    rnet_task_base = xTaskCreate(RNetTask,
+        "RNet",
+        configMINIMAL_STACK_SIZE,
+        (void *) NULL,
+        tskIDLE_PRIORITY,
+        (TaskHandle_t *) NULL);
+    
+    if (pdPASS != rnet_task_base){
+        while (1) {}
     }
-        
-    if (xTaskCreate(
-            RNetTask, /* pointer to the task */
-            "RNet",   /* task name for kernel awareness debugging */
-            configMINIMAL_STACK_SIZE, /* task stack size */
-            (void *)NULL,             /* optional task startup argument */
-            tskIDLE_PRIORITY,         /* initial priority */
-            (TaskHandle_t *)NULL       /* optional task handle to create */
-            ) != pdPASS) {
-                
-        while (1) {
-        }
-    }
+    
 }
 
 /* [] END OF FILE */

@@ -23,18 +23,18 @@
 
 #if defined (CY_SCB_SPI_H)
 # if defined (SPI_CY_SCB_SPI_PDL_H)
-#  define _PSOC6      1
+#  define _PSOC6
 # else
-#  define _PSOC4_SCB  1
+#  define _PSOC4_SCB
 # endif
 #else
-# define _PSOC_UDB   1
+# define _PSOC_UDB
 #endif
 
-#if (_PSOC6==1)
+#if defined (_PSOC6)
 # include "gpio/cy_gpio.h"
-#elif (_PSOC_UDB==1) || (_PSOC4_SCB==1)
-# if (_PSOC4_SCB==1)
+#else // (_PSOC_UDB==1) || (_PSOC4_SCB==1)
+# if defined (_PSOC4_SCB)
 #  include "SPI_SPI_UART.h"
 # endif
 # include "CE.h"
@@ -83,7 +83,7 @@
 #define CUSTOMIZER_RX_ADDR_P4   (197)
 #define CUSTOMIZER_RX_PW_P5     (0)
 #define CUSTOMIZER_RX_ADDR_P5   (198)
-    
+
 #endif /* RF1_CONFIG_H */
 
 /* [] END OF FILE */

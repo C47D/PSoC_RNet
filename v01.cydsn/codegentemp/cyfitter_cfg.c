@@ -289,7 +289,7 @@ void cyfitter_cfg(void)
 	/* Perform second pass device configuration. These items must be configured in specific order after the regular configuration is done. */
 	/* IOPINS0_0 Starting address: CYDEV_PRT0_BASE */
 	CY_SET_REG32((void *)(CYDEV_PRT0_BASE), 0x00000005u);
-	CY_SET_REG32((void *)(CYREG_PRT0_PC), 0x000001B2u);
+	CY_SET_REG32((void *)(CYREG_PRT0_PC), 0x00006DB2u);
 
 	/* IOPINS0_3 Starting address: CYDEV_PRT3_BASE */
 	CY_SET_REG32((void *)(CYREG_PRT3_PC), 0x00000D80u);

@@ -65,19 +65,25 @@ uint8_t RMSG_QueuePut(uint8_t *buf, size_t bufSize, uint8_t payloadSize,
     QueueHandle_t queue;
     BaseType_t qRes;
 
+    /* more data than can fit into payload! */
     if (payloadSize > RPHY_PAYLOAD_SIZE) {
-        return ERR_OVERFLOW; /* more data than can fit into payload! */
+        return ERR_OVERFLOW;
     }
+    
+    /* must be exactly this buffer size!!! */
     if (bufSize != RPHY_BUFFER_SIZE) {
-        return ERR_FAILED; /* must be exactly this buffer size!!! */
+        return ERR_FAILED;
     }
+    
     if (isTx) {
         queue = RMSG_MsgTxQueue;
     } else {
         queue = RMSG_MsgRxQueue;
     }
+    
     RPHY_BUF_FLAGS(buf) = flags;
     RPHY_BUF_SIZE(buf) = payloadSize;
+    
     if (fromISR) {
         signed portBASE_TYPE pxHigherPriorityTaskWoken;
 
@@ -87,17 +93,21 @@ uint8_t RMSG_QueuePut(uint8_t *buf, size_t bufSize, uint8_t payloadSize,
             qRes = xQueueSendToFrontFromISR(queue, buf,
                                             &pxHigherPriorityTaskWoken);
         }
+        
         if (qRes != pdTRUE) {
             /* was not able to send to the queue. Well, not much we can do
              * here... */
             res = ERR_BUSY;
         }
+        
     } else {
+        
         if (toBack) {
             qRes = xQueueSendToBack(queue, buf, RMSG_QUEUE_PUT_WAIT);
         } else {
             qRes = xQueueSendToFront(queue, buf, RMSG_QUEUE_PUT_WAIT);
         }
+        
         if (qRes != pdTRUE) {
             res = ERR_BUSY;
         }
